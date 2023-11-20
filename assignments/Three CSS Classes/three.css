@@ -1,0 +1,24 @@
+.light {
+    color: aquamarine;
+    background-color: black;
+}
+
+.dark {
+    color: blueviolet;
+    background-color: green;
+}
+
+.new {
+    color: antiquewhite;
+    background-color: blue;
+}
+
+.light-new {
+    color: chartreuse;
+    background-color: yellow;
+}
+
+.dark-new {
+    color: black;
+    background-color: greenyellow;
+}
