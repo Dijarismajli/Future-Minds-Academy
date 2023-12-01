@@ -1,0 +1,16 @@
+h1::first-letter {
+    font-size: 170px;
+    color: blue;
+
+}
+
+h1::after {
+    content: "-";
+    color: red;
+
+}
+
+button:hover {
+    color: green;
+    background-color: rgb(0, 204, 255);
+}
