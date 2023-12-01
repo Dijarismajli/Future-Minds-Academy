@@ -1,7 +1,12 @@
 .Lorem {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 50px;
     text-transform: initial;
+
 }
 
-.Lorem ::first-letter {}
+.TEXT {
+    color: rgb(113, 210, 255);
+    font-size: 300px;
+
+}
