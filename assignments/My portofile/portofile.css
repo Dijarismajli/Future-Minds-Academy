@@ -1,0 +1,167 @@
+body {
+    text-align: center;
+    margin: 0;
+    padding: 20px 30px;
+    cursor: url(./images/5027875_business_launch_rocket_startup_icon.svg) 100 -23, default;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-image: url(./images/imahe.png);
+
+}
+
+.list {
+    display: inline;
+    background-color: red;
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+.Paragraph {
+    border: 3px solid transparent;
+    background-color: rgb(68, 0, 255);
+    padding: 15px 10px;
+    border-radius: 27px;
+}
+
+.Paragraph:hover {
+    background-color: rgb(127, 236, 255);
+    border: 20px solid black;
+}
+
+hr {
+    height: 3px;
+    border: none;
+    background-color: rgb(0, 0, 0);
+}
+
+nav {
+    width: 300px;
+    margin: 10px auto;
+}
+
+nav li {
+    list-style-type: none;
+    margin-right: 20px;
+}
+
+.MyEducation {
+    background-color: aqua;
+    padding: 15px 10px;
+    margin: 15px;
+    border-radius: 27px;
+}
+
+.MyEducation:hover {
+    background-color: black;
+    color: rgb(240, 19, 19);
+    border: 15px solid rgb(255, 0, 0);
+}
+
+.MyEducation2 {
+    background-color: yellow;
+    padding: 15px 5px;
+    margin: 7px;
+    border-radius: 20px;
+}
+
+.MyEducation2:hover {
+    background-color: rgb(170, 255, 100);
+    border: 15px solid black;
+}
+
+.Projects {
+    background-color: rgb(7, 61, 0);
+    padding: 20px 30px;
+    margin: 30px;
+    border-radius: 50px;
+
+}
+
+.Projects:hover {
+    background-color: rgb(162, 255, 159);
+    border: 15px solid black;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 30px 20px;
+    margin: 25px;
+    border-radius: 45px;
+}
+
+.footer:hover {
+    background-color: orange;
+    color: rgb(3, 3, 3);
+    border: 15px solid black;
+}
+
+
+
+.headerhere {
+    background-color: rgb(255, 41, 41);
+    padding: 30px 20px;
+    margin: 25px;
+    border-radius: 45px;
+    border: 10px rgb(0, 0, 0);
+}
+
+.list1 {
+    display: inline;
+    background-color: rgb(44, 238, 245);
+    border-radius: 20px;
+    padding: 10px 10px;
+}
+
+.images {
+    background-color: rgb(255, 41, 41);
+    padding: 30px 20px;
+    margin: 25px;
+    border-radius: 45px;
+}
+
+.images:hover {
+    background-color: goldenrod;
+    border: 15px blue;
+}
+
+.list2 {
+    display: inline;
+    background-color: rgb(255, 230, 0);
+    border-radius: 20px;
+    padding: 10px 10px;
+    border: 15px rgb(149, 149, 233);
+}
+
+.Contacts {
+    background-color: blueviolet;
+    color: white;
+    border: 15 px solid black;
+    padding: 30px 20px;
+    margin: 25px;
+    border-radius: 30px;
+}
+
+.message {
+    background-color: gold;
+    color: white;
+    padding: 20px 20px;
+    margin: 25px;
+    border-radius: 30px;
+}
+
+.contactme {
+    background-color: rgb(255, 243, 131);
+    border: 15 px solid black;
+    padding: 20px 20px;
+    margin: 25px;
+    border-radius: 30px;
+}
+
+.Yourthink {
+    background-color: yellowgreen;
+    border: 15 px solid black;
+    padding: 20px 20px;
+    margin: 25px;
+    border-radius: 30px;
+
+}
