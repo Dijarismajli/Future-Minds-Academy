@@ -1,0 +1,16 @@
+/* Body */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: greenyellow;
+}
+
+/* Class */
+.card {
+    background: red;
+    justify-content: center;
+    align-items: center;
+
+}
