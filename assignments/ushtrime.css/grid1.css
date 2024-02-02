@@ -1,0 +1,27 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: grid;
+    background-color: red;
+    grid-template-columns: 1fr 1fr;
+}
+
+ul {
+    display: grid;
+    grid-template-columns: 200px 200px;
+    gap: 5rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: repeat(5, 100px);
+    grid-template-rows: 100px 200px 400px;
+    gap: 20px;
+}
+
+.card1 {
+    background-color: rgb(63, 63, 63);
+}

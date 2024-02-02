@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.dflex {
+    display: flex;
+}
+
+header {
+    background-color: red;
+}
+
+.space {
+    justify-content: space-between;
+}
+
+img {
+    border-radius: 50%;
+}
+
+ul {
+    gap: 40px;
+}
+
+li,
+a {
+    padding: 20px;
+    margin: 10px;
+    list-style: none;
+    background-color: blue;
+    border-radius: 30px;
+}
+
+.logo {
+    border-radius: 50%;
+}
+
+main {
+    background-color: blue;
+    color: white;
+    height: 100%;
+}

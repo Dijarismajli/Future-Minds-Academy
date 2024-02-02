@@ -1,0 +1,18 @@
+body {
+    margin: 120px;
+    padding: 20px, 34px;
+}
+
+img {
+    border-radius: 50%;
+    filter: blur(10px);
+    width: 150px;
+    height: 140px;
+}
+
+img:hover {
+    filter: none;
+    transform: rotate(720degpx);
+
+
+}

@@ -1,0 +1,17 @@
+button {
+    background-color: navajowhite;
+    padding: 20px;
+    margin: 15px;
+    font-size: 2rem;
+    border: 2px solid black;
+    cursor: pointer;
+    transition: backround-color, transform;
+    transition-duration: 0, 5s, 0, 3s;
+    transition-timing-function: ease-in;
+}
+
+button:hover {
+    background-color: lightgreen;
+    color: white;
+    transform: scale(1.2);
+}

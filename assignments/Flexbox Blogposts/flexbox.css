@@ -1,0 +1,88 @@
+/* Global */
+
+.textBlue {
+    color: blue;
+}
+
+.bggreen {
+    background-color: green;
+}
+
+.bgblue {
+    background-color: blue;
+}
+
+.bgred {
+    background-color: rgb(255, 0, 0);
+}
+
+
+.paddingy5x10 {
+    padding: 5px, 10px;
+}
+
+/* finish */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+aside {
+    background-color: lightslategray;
+    width: 200px;
+    height: 100vh;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0, 40px;
+    margin: 20px;
+    color: white;
+
+}
+
+.asideTitle {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.asidebutton {
+    background-color: transparent;
+    color: white;
+    padding: 3px, 20px;
+    margin: 20px;
+}
+
+/* main */
+
+.parent {
+    margin: 30px, 35px;
+    padding: 30px, 100px;
+}
+
+.card {
+    margin: 20px, 25px;
+    padding: 20px, 30px;
+}
+
+.cardheader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+img {
+    border-radius: 100%;
+    width: 200px;
+    height: 150px;
+}
