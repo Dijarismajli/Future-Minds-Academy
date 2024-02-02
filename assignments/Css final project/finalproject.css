@@ -1,0 +1,85 @@
+/* global */
+
+
+.alignitemscenter {
+    align-items: center;
+}
+
+.dFlex {
+    display: flex;
+}
+
+
+.dgrid {
+    display: grid;
+}
+
+.gridtemplatecolumnsauto1frauto {
+    grid-template-columns: auto 1fr auto;
+}
+
+.gap2 {
+    gap: 1.5rem;
+}
+
+.margin10pxy0z {
+    margin: 10px 0px;
+}
+
+.bgred {
+    background-color: red;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+body {
+    grid-template-columns: 2fr 10fr;
+    height: 100vh;
+}
+
+aside {
+    color: white;
+    padding: 20px;
+    background: url(./assets/images/sidebar-1.jpg);
+    background-color: rgba(0, 0, 0, 0.877);
+    background-blend-mode: color;
+}
+
+.card:hover {
+    background-color: rgb(119, 119, 119);
+}
+
+img {
+    width: 50px;
+    border-radius: 50%;
+    height: 50px;
+}
+
+header {
+    background-color: rgb(228, 228, 228);
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.Dashboard {
+    background-color: white;
+    border-radius: 50%;
+    width: 50px;
+    padding: 5px;
+}
+
+.search {}
+
+
+main {
+    background-color: yellow;
+}
+
+footer {
+    background-color: yellowgreen;
+}
