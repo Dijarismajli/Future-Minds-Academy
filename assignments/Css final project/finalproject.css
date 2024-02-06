@@ -9,6 +9,9 @@
     display: flex;
 }
 
+.width {
+    width: 40px;
+}
 
 .dgrid {
     display: grid;
@@ -28,6 +31,10 @@
 
 .bgred {
     background-color: red;
+}
+
+.bgwhite {
+    background-color: white;
 }
 
 * {
