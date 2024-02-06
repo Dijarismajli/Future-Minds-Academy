@@ -19,7 +19,7 @@
 }
 
 .gap2 {
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .margin10pxy0z {
@@ -71,15 +71,29 @@ header {
     border-radius: 50%;
     width: 50px;
     padding: 5px;
+    margin: 3px 10px;
 }
 
-.search {}
+input {
+    background-color: transparent;
+    height: 3vh;
+    margin: 10px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid red;
+}
+
+
+
+input:focus {
+    border-bottom: 2px solid green;
+}
 
 
 main {
-    background-color: yellow;
+    background-color: rgb(228, 228, 228);
 }
 
 footer {
-    background-color: yellowgreen;
+    background-color: rgb(228, 228, 228);
 }
