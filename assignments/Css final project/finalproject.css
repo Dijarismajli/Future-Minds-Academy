@@ -1,6 +1,4 @@
 /* global */
-
-
 .alignitemscenter {
     align-items: center;
 }
@@ -10,7 +8,11 @@
 }
 
 .width {
-    width: 40px;
+    width: 30px;
+}
+
+.circle {
+    border-radius: 50%;
 }
 
 .dgrid {
@@ -33,22 +35,29 @@
     background-color: red;
 }
 
+.bggrey {
+    background-color: rgb(228, 228, 228);
+}
+
 .bgwhite {
     background-color: white;
 }
+
+/* finish */
 
 * {
     padding: 0;
     margin: 0;
 }
 
-
 body {
-    grid-template-columns: 2fr 10fr;
+    grid-template-columns: auto 1fr;
     height: 100vh;
 }
 
+/* aside */
 aside {
+    height: 100vh;
     color: white;
     padding: 20px;
     background: url(./assets/images/sidebar-1.jpg);
@@ -66,39 +75,58 @@ img {
     height: 50px;
 }
 
+/* header */
 header {
-    background-color: rgb(228, 228, 228);
     display: flex;
     justify-content: space-between;
-
+    background-color: rgb(228, 228, 228);
 }
+
+.notifications {
+    position: relative;
+}
+
+.info {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    padding: 5px;
+    position: absolute;
+    text-align: center;
+    top: -5px;
+    right: -5px;
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+
 
 .Dashboard {
     background-color: white;
     border-radius: 50%;
-    width: 50px;
     padding: 5px;
     margin: 3px 10px;
 }
 
 input {
     background-color: transparent;
-    height: 3vh;
+    height: 3.5vh;
     margin: 10px;
     border: none;
     outline: none;
     border-bottom: 2px solid red;
 }
 
-
-
 input:focus {
     border-bottom: 2px solid green;
 }
 
-
+/* main */
 main {
     background-color: rgb(228, 228, 228);
+    text-align: center;
+    justify-content: center;
+    padding: 10px;
+    margin: 50px;
 }
 
 footer {
