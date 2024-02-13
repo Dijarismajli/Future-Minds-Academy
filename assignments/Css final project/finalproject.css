@@ -11,10 +11,6 @@
     width: 30px;
 }
 
-.circle {
-    border-radius: 50%;
-}
-
 .dgrid {
     display: grid;
 }
@@ -88,8 +84,8 @@ header {
 
 .info {
     border-radius: 50%;
-    width: 10px;
-    height: 10px;
+    width: 15px;
+    height: 15px;
     padding: 5px;
     position: absolute;
     text-align: center;
@@ -99,17 +95,44 @@ header {
     color: white;
 }
 
+.hidden {
+    position: absolute;
+    right: 75px;
+    top: 20px;
+    width: 200px;
+    background-color: white;
+    visibility: hidden;
+}
+
+.notifications:hover .hidden {
+    visibility: visible;
+}
+
+.hidden p {
+    padding: 10px;
+}
+
+.hidden p:hover {
+    background-color: red;
+    color: white;
+
+}
 
 .Dashboard {
     background-color: white;
-    border-radius: 50%;
-    padding: 5px;
+    padding: 10px;
     margin: 3px 10px;
+}
+
+.circle {
+    border-radius: 50%;
+    padding: 10px;
+    margin: 7px 10px;
 }
 
 input {
     background-color: transparent;
-    height: 3.5vh;
+    height: 7vh;
     margin: 10px;
     border: none;
     outline: none;
@@ -127,6 +150,24 @@ main {
     justify-content: center;
     padding: 10px;
     margin: 50px;
+}
+
+.maincard {
+    background-color: green;
+    width: 50px;
+    margin-top: -20px;
+    padding: 4px;
+    top: 200px;
+}
+
+/* main text */
+.article {
+    height: 70px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 footer {
