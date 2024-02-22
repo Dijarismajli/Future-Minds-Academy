@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Air-Condiner </title>
+    <style>
+        .ab {
+            background-image: url(./ac.png);
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+            position: relative;
+        }
+
+        h4 {
+            position: absolute;
+            top: 10%;
+            left: 37%;
+            font-size: 55px;
+            color: black;
+        }
+
+        select {
+            width: 100px;
+            height: 50px;
+            margin: 0px auto;
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="ab">
+        <h4>0</h4>
+
+        <select name="" id="" class="tempSelect">
+            <option value="">1</option>
+            <option value="">2</option>
+        </select>
+    </div>
+
+    <select name="" id="">
+        <option value="">1</option>
+        <option value="">2</option>
+    </select>
+
+
+    <script>
+        let allOptions;
+
+        let tempSelect = document.querySelector('tempSelect')
+        for (let i = 1 i <= 30 i++) {
+            allOptions += '<option value="">' + i + '</option>';
+        }
+        allOptions += '<option value="">1</option>';
+        allOptions += '<option value="">1</option>';
+        allOptions += '  <option value="">1</option>';
+
+        tempSelect.innerHTML = allOptions
+    </script>
+</body>
+
+</html>
