@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .card {
+            width: 40px;
+            border: 2px solid gray;
+            border-radius: 10px;
+            padding: 40px;
+            margin-bottom: 10px;
+        }
+
+        .shadow {
+            box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+        }
+
+        .hideCard {
+            visibility: hidden;
+        }
+
+        .showCard {
+            visibility: visible;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <h1>welcome</h1>
+        <img src="../assignments/semantic/New folder/austin.jpg" alt="" width="4px">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore facilis sequi enim ea eveniet deserunt
+            dignissimos accusantium quo eum possimus, veritatis, esse qui quae excepturi libero dolore repudiandae optio
+            voluptatibus.</p>
+    </div>
+    <input type="checkbox" id="addShadow" name="shadow" onclick="addRemoveShadow()">
+    <label for="addShadow">add Shadow</label>
+
+    <a href="javascript:hideShowMe();"></a>
+    <script>
+        const card = document.querySelector('card');
+        const showHideBtn = document.querySelector('a')
+        const addShadow = document.querySelector('#addShadow')
+        let state = true;
+
+        function hideShowMe() {
+            if (state) {
+                card.classList.add('hideCard');
+                showHideBtn.innerHTML = "show me";
+                state = false;
+            }
+
+            else {
+                card.classList.remove('hideCard');
+                showHideBtn.innerHTML = "hide me";
+                state = true;
+            }
+        }
+
+        function addRemoveShadow() {
+            if (addShadow.checked) {
+                card.classList.add('shadow');
+            }
+
+            else {
+                card.classList.remove('shadow');
+            }
+        }
+    </script>
+</body>
+
+</html>
