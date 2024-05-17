@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <h3 class="treies">Treies:3</h3>
+    <label for="">Guess a number between 1-10</label><br>
+    <input type="number" id="age" value=""><br><br>
+    <p class="hints"></p>
+    <button onclick="guessNumbe()">Guess</button>
+    <hr>
+    <h3 class="msg"> </h3>
+
+
+    <script>
+        let usernumber = Math.floor(Math.random() * 10) + 1;
+        const hints = document.querySelector(">hints")
+        const age = document.querySelector("#age")
+        const msg = document.querySelector(".msg")
+        const treies = document.querySelector(".treies")
+
+        let treiesCount = 3;
+
+        let guessNumbe = function () {
+            if (age < guessNumber) {
+                hints.textContent = "please guess it highter"
+            }
+
+            if (usernumber.value > age) {
+                hints.textContent = "please guess it lower"
+            }
+            if (usernumber.value == age) {
+                msg.textContent = "You guess it ";
+                hints.textContent = "";
+            }
+            else {
+                if (treiesCount == 0)
+                    msg.textContent = "you lost"
+                hints.textContent = "";
+            }
+
+            treiesCount--;
+            treies.textContent = "Treies:" + treiesCount;
+
+        }
+
+        // let usernumber = Math.floor(Math.random() * 10) + 1;
+        // let age = parseInt(prompt('What is your number?'));
+
+        // console.log(usernumber)
+
+        //     age = prompt("Guess it heighter");
+        // }
+        // if (usernumber < age) {
+        //     age = prompt("Guess it lower");
+        // }
+
+    </script>
+</body>
+
+</html>
