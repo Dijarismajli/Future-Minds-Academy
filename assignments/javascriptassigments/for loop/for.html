@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Librat</title>
+</head>
+
+<body>
+
+    <table BORDER="1" cellpage="5" id="anime" width="50%">
+
+        <thead>
+            <tr>
+                <td>#</td>
+                <td> Title</td>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+
+    </table>
+
+    <script>
+        const anime = document.querySelector("#anime");
+
+
+
+        let library = [
+            'onepiece',
+            'dragon ball',
+            'naruto',
+            'naruto',
+            'naruto',
+            'naruto',
+            'hunter x hunte'
+        ];
+
+
+        for (let i = 0; i < library.length; i++) {
+            anime.innerHTML += `   
+            <tr>
+                <td>${i + 1}</td>
+                <td> ${library[i]}</td>
+            </tr>`;
+        }
+
+
+    </script>
+</body>
+
+</html>

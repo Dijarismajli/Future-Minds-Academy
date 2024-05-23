@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p class="number">While loop</p>
+    <h2>for loop</h2>
+    <p class="numbers"></p>
+    <script>
+
+        const number = document.querySelector(".number")
+        const numbers = document.querySelector(".numbers")
+
+        let i = 40;
+
+
+        while (i >= 0) {
+            number.innerHTML += `${i}<br> `;
+            i--;
+        }
+
+
+        for (i = 40; i >= 0; i--) {
+            numbers.innerHTML += `${i}<br> `;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
