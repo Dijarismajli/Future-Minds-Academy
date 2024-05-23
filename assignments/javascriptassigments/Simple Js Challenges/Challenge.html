@@ -21,10 +21,24 @@
 
     <script>
 
+        let radius = parseFloat(prompt('Please enter the radius of the circle:'));
+
+
+        let area = Math.PI * Math.pow(radius, 2);
+
+
+        let outputSentencet = `The area of a circle with radius ${radius} is ${area.toFixed(2)} square units.`;
+        alert(outputSentencet);
     </script>
 
 
     <script>
+        let euros = parseFloat(prompt('Please enter the amount in Euros:'));
+
+        let dollars = euros * 1.1;
+
+        let outputSentenc = `${euros} Euros is equal to ${dollars.toFixed(2)} Dollars.`;
+        alert(outputSentenc);
 
     </script>
 
