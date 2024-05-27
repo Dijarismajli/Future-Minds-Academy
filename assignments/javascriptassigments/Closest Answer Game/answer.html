@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* styles.css */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #c0c0c0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .game-container {
+            text-align: center;
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .players {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .player {
+            padding: 20px;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        #player-one {
+            background-color: green;
+        }
+
+        #player-two {
+            background-color: red;
+        }
+
+        h1,
+        h2 {
+            margin: 0;
+            padding: 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Closest Answer Game</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="game-container">
+            <h1 id="correct-answer">The correct answer is </h1>
+            <div class="players">
+                <div class="player" id="player-one">
+                    <h2>Player One</h2>
+                    <p id="player-one-guess"></p>
+                </div>
+                <div class="player" id="player-two">
+                    <h2>Player Two</h2>
+                    <p id="player-two-guess"></p>
+                </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+
+    </html>
+
+
+
+
+
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const correctAnswer = 7;
+
+            const playerOneGuess = parseInt(prompt("Player One, enter your guess:"));
+            const playerTwoGuess = parseInt(prompt("Player Two, enter your guess:"));
+
+
+            const correctAnswerElement = document.getElementById('correct-answer');
+            const playerOneGuessElement = document.getElementById('player-one-guess');
+            const playerTwoGuessElement = document.getElementById('player-two-guess');
+            const playerOneElement = document.getElementById('player-one');
+            const playerTwoElement = document.getElementById('player-two');
+
+
+            correctAnswerElement.textContent = `The correct answer is ${correctAnswer}`;
+
+
+            playerOneGuessElement.textContent = playerOneGuess;
+            playerTwoGuessElement.textContent = playerTwoGuess;
+
+
+            const diffPlayerOne = Math.abs(correctAnswer - playerOneGuess);
+            const diffPlayerTwo = Math.abs(correctAnswer - playerTwoGuess);
+
+            if (diffPlayerOne < diffPlayerTwo) {
+                playerOneElement.style.backgroundColor = 'green';
+                playerTwoElement.style.backgroundColor = 'red';
+            } else if (diffPlayerTwo < diffPlayerOne) {
+                playerOneElement.style.backgroundColor = 'red';
+                playerTwoElement.style.backgroundColor = 'green';
+            } else {
+                playerOneElement.style.backgroundColor = 'yellow';
+                playerTwoElement.style.backgroundColor = 'yellow';
+            }
+        });
+
+    </script>
+</body>
+
+</html>
