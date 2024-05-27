@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+</head>
+
+<body>
+
+    <div class="allprofiles">
+
+    </div>
+    <script>
+        let profile = [
+            {
+                name: 'dijar',
+                age: 14,
+                bio: 'My name is dijar'
+            },
+            {
+                name: 'dijart',
+                age: 9,
+                bio: 'My name is dijart'
+            },
+            {
+                name: 'diar',
+                age: 13,
+                bio: 'My name is diar'
+            }
+        ]
+
+        const allprofiles = document.querySelector(".allprofiles")
+        for (let i = 0; i < profile.length; i++) {
+            allprofiles.innerHTML += renderHtml(profile[i].name, profile[i].age, profile[i].bio)
+            console.log(i + '. ' + profile[i].name); console.log(i + '. ' + profile[i].age); console.log(i + '. ' + profile[i].bio)
+        }
+
+        function renderHtml(name, age, bio) {
+            let finalHtml = '';
+
+            finalHtml = `
+            <h1>${name}</h1>
+            <h2>${age}</h2>
+            <p>${bio}</p>
+            <hr>`
+        }
+
+    </script>
+</body>
+
+</html>

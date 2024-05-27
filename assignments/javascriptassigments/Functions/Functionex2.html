@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Ex</title>
+</head>
+
+<body>
+
+
+    <table border="1">
+
+        <thead>
+            <th>Name</th>
+            <th>agee</th>
+            <th>bio</th>
+        </thead>
+        <tbody id="allprofiles">
+        </tbody>
+    </table>
+    <script>
+
+
+        let profile = [
+            {
+                name: 'dijar',
+                age: 14,
+                bio: 'My name is dijar'
+            },
+            {
+                name: 'dijart',
+                age: 9,
+                bio: 'My name is dijart'
+            },
+            {
+                name: 'diar',
+                age: 13,
+                bio: 'My name is diar'
+            }
+        ]
+
+        const allprofiles = document.querySelector("#options")
+        for (let i = 0; i < profile.length; i++) {
+
+            allprofiles.innerHTML += renderHtml(profile[i].name, profile[i].age, profile[i].bio)
+            console.log(i + '. ' + profile[i].name); console.log(i + '. ' + profile[i].age); console.log(i + '. ' + profile[i].bio)
+        }
+        function renderHtml(name, age, bio) {
+            let finalHtml = '';
+
+            finalHtml = `
+       
+            <tbody id="options">
+                </tr>    
+                 <td>${name}</td>
+                <td>${age}</td>
+                <td>${bio}</td>
+                <hr>  
+                </tr`
+
+        }
+    </script>
+</body>
+
+</html>
