@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        let sum = 0;
+        let number;
+
+        do {
+            number = parseInt(prompt("Enter a positive number (Enter 0 to finish):"), 10);
+
+            if (number > 0) {
+                sum += number;
+            } else if (number < 0) {
+                alert("Please enter a positive number.");
+            }
+
+        } while (number !== 0);
+
+        console.log(`The sum of the numbers you wrote is equal to ${sum}.`);
+
+    </script>
+</body>
+
+</html>
