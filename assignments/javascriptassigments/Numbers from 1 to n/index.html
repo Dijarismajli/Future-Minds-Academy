@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Numbers from 1 to n</title>
+</head>
+
+<body>
+
+    <script>
+        let number;
+        do {
+            number = parseInt(prompt("Enter a positive integer from 1 to 100:"), 10);
+        }
+        while (isNaN(number) || number < 1 || number > 100);
+
+
+        for (let i = 1; i <= number; i++) {
+            console.log(i);
+        }
+
+
+        let spaceNumbers = "";
+        for (let i = 1; i <= number; i++) {
+            spaceNumbers += i + " ";
+        }
+        console.log(spaceNumbers);
+
+        let thirdNumbers = "";
+        for (let i = 1; i <= number; i++) {
+            if (i === number) {
+                thirdNumbers += i;
+            } else {
+                thirdNumbers += i + ", ";
+            }
+            console.log(thirdNumbers);
+        }
+    </script>
+</body>
+
+</html>
