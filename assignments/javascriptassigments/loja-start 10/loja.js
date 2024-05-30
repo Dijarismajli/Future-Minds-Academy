@@ -1,6 +1,4 @@
-let rrafshi = document.createElement("canvas");
-rrafshi.width = 512;
-rrafshi.height = 480;
+const rrafshi = document.createElement("canvas");
 document.body.appendChild(rrafshi);
 
 let br = document.createElement('br ')
@@ -25,7 +23,7 @@ bgrImg.onload = function () {
     bgrReady = true;
 }
 
-let macaReady = false; false
+let macaReady = false;
 let maca = {};
 maca.x = 300;
 maca.y = 300;
@@ -102,16 +100,11 @@ let render = function () {
         }
         else { ctx.fillText("You lose:", 200, 30); }
     }
-
 }
-
 
 let startTimer = function () {
     ticker--;
     if (ticker != 0) { ticker--; } else { gameOver = true }
-
-
-
 }
 let renderInterval = setInterval(render, 10);
 let timerInterval = setInterval(startTimer, 1000);
@@ -122,12 +115,6 @@ let timer = function () {
         start
     }
 }
-
-
-
-
-
-
 startOver.addEventListener("click", function () {
     location.reload();
 });
