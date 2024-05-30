@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        let random = Math.floor(Math.random() * 6) + 1;
+        let userinput;
+        let noOfTries = 0;
+
+        do {
+            userinput = parseInt(prompt('Guess the number'));
+            noOfTries++;
+        }
+
+        while (userinput !== random)
+        alert(`The correct number was ${random} and you guess it in ${noOfTries} tries`)
+
+
+        if (noOfTries === 1) {
+            alert(`The correct number was ${random}and you `)
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
