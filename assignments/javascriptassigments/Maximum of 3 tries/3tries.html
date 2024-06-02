@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+
+        function passworde() {
+            const correctPassword = '12341234';
+            let attemptsLeft = 3;
+            let userPassword;
+
+
+            do {
+                userPassword = prompt(`Enter the password. You have ${attemptsLeft} ${attemptsLeft > 1 ? 'tries' : 'try'} left:`);
+                if (userPassword === correctPassword) {
+                    alert("Welcome!");
+                    return;
+                } attemptsLeft--;
+            }
+
+            while (attemptsLeft > 0);
+
+            alert("You can't try anymore.");
+            passwordGuessingGame();
+        }
+
+    </script>
+</body>
+
+</html>
