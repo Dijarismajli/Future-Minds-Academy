@@ -1,4 +1,3 @@
-
 const start_btn = document.querySelector(".start_btn");
 const info_box = document.querySelector(".info_box");
 const exit_quiz = document.querySelector(".exit_quiz");
