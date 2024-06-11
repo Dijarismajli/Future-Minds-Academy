@@ -1,0 +1,163 @@
+
+/* Responsive FOR TABLET */
+@media only screen and (max-width:  1080px) {
+    .wrapper-full, .wrapper-xxl .wrapper-xl, .wrapper-lg,.wrapper-md, .wrapper-s{
+        width: 90%;
+        margin:  0px auto;
+        transition: all 0.3s ease-in;
+    }
+
+    .remove-tablet{
+        display: none;
+    }
+
+    .block-tablet{
+        display: block !important;
+    }
+
+    .row-tablet{
+        flex-direction: column;
+    }
+
+    .grid-cl-1{
+        grid-template-columns: 1fr;
+    }
+
+    .block-tablet{
+        display: block;
+    }
+
+    .just-tablet-start {
+        justify-content: start;
+    }
+    
+    .just-tablet-between{
+        justify-content: space-between ;
+    }
+    
+    .just-tablet-center{
+        justify-content: center !important;
+    }
+    
+    .just-tablet-end{
+        justify-content: end ;
+    }
+
+    .align-tablet-start {
+        align-items: flex-start ;
+    }
+    
+    .align-tablet-center{
+        align-items: center ;
+    }
+    
+    .align-tablet-end{
+        align-items: end;
+    }
+    
+
+    .img-tablet-full{
+        width: 100%;
+    }
+    
+    .img-tablet-xxl{
+        width: 90%;
+    }
+    
+    .img-tablet-xl{
+        width: 80%;
+    }
+    
+    .img-tablet-lg{
+        width: 70%;
+    }
+    
+    .img-tablet-md{
+        width: 60%;
+    }
+    
+    .img-tablet-s{
+        width: 50%;
+    }
+    
+    .txt-tablet-al-center{
+        text-align: center;
+    }
+}
+
+/* Responsive FOR PHONE*/
+@media only screen and (max-width: 600px) {
+   .wrapper-full, .wrapper-xxl .wrapper-xl, .wrapper-lg,.wrapper-md, .wrapper-s{
+        width: 95%;
+        margin:  0px 2.5%;
+        transition: all 0.3s ease-in;
+    }
+
+    .remove-phone{
+        display: none;
+    }
+
+    .block-phone{
+        display: block;
+    }
+
+    .row-phone{
+        flex-direction: column;
+    }
+
+    .just-phone-start {
+        justify-content: start;
+    }
+    
+    .just-phone-between{
+        justify-content: space-between ;
+    }
+    
+    .just-phone-center{
+        justify-content: center ;
+    }
+    
+    .just-phone-end{
+        justify-content: end ;
+    }
+    
+    .align-phone-start {
+        align-items: flex-start ;
+    }
+    
+    .align-phone-center{
+        align-items: center ;
+    }
+    
+    .align-phone-end{
+        align-items: end;
+    }
+    
+    .img-phone-full{
+        width: 100%;
+    }
+    
+    .img-phone-xxl{
+        width: 90%;
+    }
+    
+    .img-phone-xl{
+        width: 80%;
+    }
+    
+    .img-phone-lg{
+        width: 70%;
+    }
+    
+    .img-phone-md{
+        width: 60%;
+    }
+    
+    .img-phone-s{
+        width: 50%;
+    }
+
+    .txt-phone-al-center{
+        text-align: center;
+    }
+}

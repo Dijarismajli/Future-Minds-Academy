@@ -1,6 +1,7 @@
 const movieGernes = document.querySelector('.movieGernes');
 const movielist = document.querySelector('.movielist');
 const moviePage = document.querySelector('.movie-details-page')
+
 let activeMovie = 0;
 
 for (let i = 0; i < allMovies.length; i++) {
@@ -10,9 +11,9 @@ for (let i = 0; i < allMovies.length; i++) {
 let loadMovieList = function (g) {
     let allMoviesHTML = '';
     let movieListGerne = allMovies[g].movies;
-
     for (let i = 0; i < movieListGerne.length; i++) {
-        allMoviesHTML += `<li class"selected-mo" onclick="movieDetailPage(${g}, ${i},this )">
+        allMoviesHTML += `
+        <li class"selected-mo" onclick="movieDetailPage(${g}, ${i},this )">
             <h4>${movieListGerne[i].title}</h4>
             <img src="assets/img/${movieListGerne[i].thumb}" alt="Kill Boksoon">
             <p class="description">${movieListGerne[i].desc}</p>
@@ -22,6 +23,7 @@ let loadMovieList = function (g) {
             </div>
         </li>`;
     }
+
     movielist.innerHTML = allMoviesHTML;
     movieDetailPage(0, 0, movielist.firstChild);
 }
@@ -39,10 +41,8 @@ ${movieListGerne[m].trailer}
 </div>`;
 
     moviePage.innerHTML = movieDetailHtml;
-
     movielist.childNodes[activeMovie].classList.remove('selected-movie');
     activeMovie = m;
     n.classList.add('selected-movie');
 }
-
 loadMovieList(0);

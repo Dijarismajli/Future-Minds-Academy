@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        Welcome to All Seasons
+    </title>
+    <link rel="stylesheet" href="assets/css/fma-general.css">
+    <link rel="stylesheet" href="assets/css/fma-responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fixed">
+        <header class="row align-center">
+            <div class="col">
+                <nav class="navbar gap-2">
+                    <h2>Logo</h2>
+                    <ul class="navbar-menu remove-tablet">
+                        <li><a class="active" href="javascript:loadPage('spring')">Spring</a></li>
+                        <li><a href="javascript:loadPage('summer');">Summer</a></li>
+                        <li><a href="javascript:loadPage('fall');">Fall</a></li>
+                        <li><a href="javascript:loadPage('winter');">Winter</a></li>
+                        <li><button onclick="loadPage('allSeasons')" class="btn">All Seasons</button></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+        <main class="row">
+            <div class="col">
+                <h1 class="text-center title"></h1>
+                <div>
+                    <img id="image1" class="img-xxl" src="assets/images/spring.png" alt="Spring" />
+                </div>
+            </div>
+        </main>
+        <footer class="row">
+            <div class="col">
+                <p class="text-center">FMA. All Seasons Reserved!</p>
+            </div>
+        </footer>
+    </div>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
