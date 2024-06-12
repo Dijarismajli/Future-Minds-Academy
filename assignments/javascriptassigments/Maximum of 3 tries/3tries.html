@@ -4,34 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Password Prompt</title>
 </head>
 
 <body>
-
-
     <script>
+        const CORRECT_PASSWORD = '12341234';
+        const MAX_TRIES = 3;
+        let tries = 0;
+        let password = '';
+        let success = false;
 
-        function passworde() {
-            const correctPassword = '12341234';
-            let attemptsLeft = 3;
-            let userPassword;
-
-
-            do {
-                userPassword = prompt(`Enter the password. You have ${attemptsLeft} ${attemptsLeft > 1 ? 'tries' : 'try'} left:`);
-                if (userPassword === correctPassword) {
-                    alert("Welcome!");
-                    return;
-                } attemptsLeft--;
+        do {
+            let remainingTries = MAX_TRIES - tries;
+            if (remainingTries === 1) {
+                password = prompt('Enter the password (1 try left):');
+            } else {
+                password = prompt(`Enter the password (${remainingTries} tries left):`);
             }
 
-            while (attemptsLeft > 0);
+            if (password === CORRECT_PASSWORD) {
+                alert('Welcome!');
+                success = true;
+                break;
+            }
 
-            alert("You can't try anymore.");
-            passwordGuessingGame();
+            tries++;
+        } while (tries < MAX_TRIES);
+
+        if (!success) {
+            alert("You have used all your tries. You can't try anymore.");
         }
-
     </script>
 </body>
 
