@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collatz Sequence</title>
+</head>
+
+<body>
+    <h1>Collatz Sequence</h1>
+    <label for="startNumber">Enter a starting number:</label>
+    <input type="number" id="startNumber">
+    <button onclick="generateSequence()">Generate Sequence</button>
+    <div id="sequence"></div>
+
+    <script>
+        function generateSequence() {
+            const startNumber = parseInt(document.getElementById('startNumber').value);
+            let number = startNumber;
+            let sequence = [];
+
+            while (number !== 1) {
+                sequence.push(number);
+                if (number % 2 === 0) {
+                    number /= 2;
+                }
+                else {
+                    number = number * 3 + 1;
+                }
+            }
+            sequence.push(1);
+
+            const sequenceOutput = sequence.join(', ');
+            document.getElementById('sequence').textContent = sequenceOutput;
+        }
+    </script>
+</body>
+
+</html>
