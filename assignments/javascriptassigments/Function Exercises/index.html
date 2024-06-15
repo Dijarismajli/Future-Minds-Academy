@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Demonstrations</title>
+
+<body>
+    <h1>Function Demonstrations</h1>
+
+    <button onclick="print()">Print "Hello World" Ten Times</button>
+
+    <div>
+        <h2>Print a String</h2>
+        <input type="text" id="stringInput" placeholder="Enter a string">
+        <button onclick="String()">Print String</button>
+    </div>
+
+    <div>
+        <h2>Convert Kilometers to Miles</h2>
+        <input type="number" id="kilometersInput" placeholder="Enter kilometers">
+        <button onclick="kilometers()">Convert</button>
+        <p id="milesOutput"></p>
+    </div>
+
+    <div>
+        <h2>Calculate Circle Area</h2>
+        <input type="number" id="radiusInput" placeholder="Enter radius">
+        <button onclick="calculate()">Calculate Area</button>
+        <p id="areaOutput"></p>
+    </div>
+
+    <div>
+        <h2>Welcome User</h2>
+        <input type="text" id="nameInput" placeholder="Enter first name">
+        <input type="text" id="surnameInput" placeholder="Enter surname">
+        <button onclick="User()">Welcome</button>
+        <p id="welcomeOutput"></p>
+    </div>
+
+    <div>
+        <h2>Check if Working Citizen</h2>
+        <input type="number" id="ageInput" placeholder="Enter age">
+        <button onclick="citizen()">Check</button>
+        <p id="workingCitizenOutput"></p>
+    </div>
+
+    <div>
+        <h2>Check if Even Number</h2>
+        <input type="number" id="numberInput" placeholder="Enter number">
+        <button onclick="isEven()">Check</button>
+        <p id="evenOutput"></p>
+    </div>
+</body>
+
+<script>
+    function print() {
+        for (let i = 0; i < 10; i++) {
+            console.log("Hello World");
+        }
+    }
+
+
+    function String() {
+        const string = document.getElementById('stringInput').value;
+        console.log(string);
+    }
+
+    function kilometers() {
+        const kilometers = parseFloat(document.getElementById('kilometersInput').value);
+        const miles = kilometers * 0.621371;
+        document.getElementById('milesOutput').innerText = `${kilometers} kilometers is equal to ${miles.toFixed(2)} miles`;
+    }
+
+    function calculate() {
+        const radius = parseFloat(document.getElementById('radiusInput').value);
+        const area = Math.PI * Math.pow(radius, 2);
+        document.getElementById('areaOutput').innerText = `The area of a circle with radius ${radius} is ${area.toFixed(2)}`;
+    }
+
+    // 5. Function that accepts a name and surname and returns a welcome message
+    function User() {
+        const name = document.getElementById('nameInput').value;
+        const surname = document.getElementById('surnameInput').value;
+        const welcomeMessage = `Welcome, ${name} ${surname}`;
+        document.getElementById('welcomeOutput').innerText = welcomeMessage;
+    }
+
+    // 6. Function called isWorkingCitizen which checks if the user is a working citizen
+    function citizen() {
+        const age = parseInt(document.getElementById('ageInput').value);
+        const isCitizenWorking = age >= 18 && age < 65;
+        document.getElementById('workingCitizenOutput').innerText = `Is the person a working citizen? ${isCitizenWorking}`;
+    }
+
+    // 7. Function called isEven which checks if a number is even
+    function isEven() {
+        const number = parseInt(document.getElementById('numberInput').value);
+        const isNumberEven = number % 2 === 0;
+        document.getElementById('evenOutput').innerText = `Is the number ${number} even? ${isNumberEven}`;
+    }
+</script>
+</head>
+
+
+</html>
