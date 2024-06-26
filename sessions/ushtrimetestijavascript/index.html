@@ -4,14 +4,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ushtrime</title>
+    <title>Nav Click</title>
+    <style>
+        ul {
+            display: flex;
+            gap: 15px;
+        }
+
+        ul li {
+            list-style-type: none;
+            padding: 10px;
+            background-color: antiquewhite;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
 
+    <ul id="nav">
+        <li>Home</li>
+        <li>Services</li>
+        <li>Products</li>
+        <li>Folio</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+
+    <h1 id="pageTitle">
+        Home
+    </h1>
+
     <script>
+        const nav = document.querySelector('#nav');
+        const pageTitle = document.querySelector('#pageTitle');
 
+        console.log(nav.children.length);
 
+        for (let i = 0; i < nav.children.length; i++) {
+            nav.children[i].addEventListener('click', function () {
+                pageTitle.textContent = this.textContent;
+            });
+        }
     </script>
 </body>
 

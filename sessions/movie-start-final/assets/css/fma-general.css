@@ -1,8 +1,3 @@
- /*Conteiners*/
- body {
-     color: aqua;
- }
-
  .container {
      position: relative;
      overflow: hidden;

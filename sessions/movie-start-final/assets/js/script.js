@@ -1,48 +1,54 @@
 const movieGernes = document.querySelector('.movieGernes');
 const movielist = document.querySelector('.movielist');
-const moviePage = document.querySelector('.movie-details-page')
+const movieDetailsPage = document.querySelector('.movie-details-page');
 
-let activeMovie = 0;
+console.log(allMovies.length);
 
 for (let i = 0; i < allMovies.length; i++) {
-    movieGernes.innerHTML += `<option value="${i}">${allMovies[i].gerne}</option>`;
+    movieGernes.innerHTML += `
+     <option value="${i}">${allMovies[i].gerne}</option>
+`;
 }
 
-let loadMovieList = function (g) {
+loadMovies(0);
+loadMovieDetail(0, 1);
+
+function loadMovies(g) {
     let allMoviesHTML = '';
-    let movieListGerne = allMovies[g].movies;
-    for (let i = 0; i < movieListGerne.length; i++) {
+    let gerneMovies = allMovies[g].movies;
+
+    for (let i = 0; i < gerneMovies.length; i++) {
         allMoviesHTML += `
-        <li class"selected-mo" onclick="movieDetailPage(${g}, ${i},this )">
-            <h4>${movieListGerne[i].title}</h4>
-            <img src="assets/img/${movieListGerne[i].thumb}" alt="Kill Boksoon">
-            <p class="description">${movieListGerne[i].desc}</p>
+        <li onclick="loadMovieDetail(${g}, ${i}, this)">
+            <h4>${gerneMovies[i].title}</h4>
+            <img src="assets/img/${gerneMovies[i].thumb}" alt="Plane">
+            <p class="description">${gerneMovies[i].desc}</p>
             <div class="row movie-stats m0 p0">
-                <div class="col m0 p0">Date: <span>${movieListGerne[i].date}</span> </div>
-                <div class="col m0 p0">Length: <span>${movieListGerne[i].length}</span> </div>
+                <div class="col m0 p0">Date: <span>${gerneMovies[i].date}</span> </div>
+                <div class="col m0 p0">Length: <span>${gerneMovies[i].length}</span> </div>
             </div>
-        </li>`;
+        </li>
+        `
     }
-
     movielist.innerHTML = allMoviesHTML;
-    movieDetailPage(0, 0, movielist.firstChild);
 }
 
-let movieDetailPage = function (g, m, n) {
-    activeMovie = m;
-    let movieListGerne = allMovies[g].movies;
-    movieDetailHtml = `<h1>${movieListGerne[m].title}(2023)</h1>
-<h4>Date: ${movieListGerne[m].date}| Length: ${movieListGerne[m].length}</h4>
-<div class="container">
-${movieListGerne[m].trailer}
-</div>
-<h4>${movieListGerne[m].actors}</h4>
-<p>${movieListGerne[m].desc}</p>
-</div>`;
+function loadMovieDetail(g, m, activeMovie) {
+    let currentMovie = allMovies[g].movies[m];
 
-    moviePage.innerHTML = movieDetailHtml;
-    movielist.childNodes[activeMovie].classList.remove('selected-movie');
-    activeMovie = m;
-    n.classList.add('selected-movie');
+    movieDetailsPage.innerHTML = `
+        <h1>${currentMovie.title}</h1>
+        <h4>Date: ${currentMovie.date} | Length: ${currentMovie.length} min</h4>
+        <div class="container">
+        ${currentMovie.trailer}
+        </div>
+
+        <h4>${currentMovie.actors}</h4>
+        <p>${currentMovie.desc}</p>
+    `;
+
+    for (let i = 0; i < movielist.children.length; i++) {
+        movielist.children[i].classList.remove('selected-movie');
+    }
+    activeMovie.classList.add('selected-movie');
 }
-loadMovieList(0);
