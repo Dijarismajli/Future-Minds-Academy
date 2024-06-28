@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Manipulation Challenge 1</title>
+</head>
+
+<body>
+
+    <h1>Look console</h1>
+    <script>
+        let stri = '     hello, dolly! ';
+        str = stri.trim();
+        let FirstLetter = str.charAt(0).toUpperCase();
+        console.log(FirstLetter); 
+    </script>
+
+    <script>
+        let timeStr = '05:36 PM';
+        let [time, period] = timeStr.split(' ');
+        let [hours, minutes] = time.split(':');
+        hours = parseInt(hours, 10);
+        minutes = parseInt(minutes, 10);
+        console.log(`Hours: ${hours}, Minutes: ${minutes}, Period: ${period}`);
+    </script>
+
+    <script>
+        let tempStr = "New York, 15°C";
+        let [city, temperature] = tempStr.split(', ');
+        let tempValue = parseFloat(temperature);
+        console.log(`City: ${city}, Temperature: ${tempValue}`);
+
+
+        tempStr = "Ottawa, -4°C";
+        [city, temperature] = tempStr.split(', ');
+        tempValue = parseFloat(temperature);
+        console.log(`City: ${city}, Temperature: ${tempValue}`);
+
+
+        tempStr = "Prishtina, 50°F";
+        [city, temperature] = tempStr.split(', ');
+        tempValue = parseFloat(temperature);
+        console.log(`City: ${city}, Temperature: ${tempValue}`);
+
+    </script>
+</body>
+
+</html>
