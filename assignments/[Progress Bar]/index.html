@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vertical Progress Bar</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .progress-container {
+            margin-inline: 1rem;
+            padding: 0, 5rem;
+            display: flex;
+            gap: 0, 5rem;
+        }
+
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            width: 0%;
+            top: 0;
+            left: 0;
+            background-color: green;
+        }
+
+        .indicator {
+            font-size: 0, 9rem;
+            color: grey;
+            font-family: monospace;
+        }
+
+        .progress-bar-wrapper {
+            flex-grow: 1;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-container" id="progressContainer">
+        <span class="indicator">0%</span>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="bar"></div>
+        </div>
+        <span class="indicator">100%</span>
+    </div>
+
+    <script>
+        let percentage = parseInt(prompt('what is the progress?'))
+
+        if (isNaN(percentage) || percentage < 0 || percentage > 100)
+
+            color;
+        if (percentage <= 50) {
+            color = 'green';
+        } else if (percentage <= 80) {
+            color = 'yellow';
+        } else {
+            color = 'red';
+        }
+
+        let progressBar = document.getElementById('bar');
+        progressBar.style.backgroundColor = color;
+        progressBar.style.width = `${percentage}%`
+    </script>
+</body>
+
+</html>
