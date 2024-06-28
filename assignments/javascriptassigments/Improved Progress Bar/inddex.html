@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const percentageInput = document.getElementById('percentageInput');
+            const updateButton = document.getElementById('updateButton');
+            const progressBar = document.getElementById('progressBar');
+
+            updateButton.addEventListener('click', () => {
+                let percentage = parseInt(percentageInput.value);
+
+                if (isNaN(percentage) || percentage < 0 || percentage > 100) {
+                    alert('Please enter a valid percentage between 0 and 100.');
+                    return;
+                }
+
+
+                progressBar.style.width = percentage + '%';
+
+
+                if (percentage <= 20) {
+                    progressBar.style.backgroundColor = 'red';
+                } else if (percentage <= 50) {
+                    progressBar.style.backgroundColor = 'orange';
+                } else {
+                    progressBar.style.backgroundColor = 'green';
+                }
+            });
+        });
+
+    </script>
+</body>
+
+</html>
