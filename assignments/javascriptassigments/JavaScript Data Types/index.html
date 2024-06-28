@@ -4,32 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JavaScript Variables</title>
+    <title>Calculate Year of Birth</title>
 </head>
 
 <body>
-    <h1>Check the Console for Output</h1>
+    <h1>Enter Your Age</h1>
+    <input type="number" id="ageInput" placeholder="Enter your age">
+    <button onclick="calculate()">Submit</button>
+
     <script>
-        let firstName = "John";
-        let age = 30;
-        let isEmployed = true;
+        function calculate() {
+            const currentYear = new Date().getFullYear();
 
+            const age = document.getElementById('ageInput').value;
 
-        let hobbies = ["reading", "traveling", "swimming"];
+            const yearOfBirth = currentYear - age;
 
-
-        let address = {
-            street: "123 Main St",
-            city: "Anytown",
-            zipCode: "12345"
-        };
-
-
-        console.log("First Name:", firstName);
-        console.log("Age:", age);
-        console.log("Is Employed:", isEmployed);
-        console.log("Hobbies:", hobbies);
-        console.log("Address:", address);
+            console.log(`You are ${age} years old so you were probably born in the year ${yearOfBirth}.`);
+        }
     </script>
 </body>
 
