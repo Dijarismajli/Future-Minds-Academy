@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detect Key Press</title>
+</head>
+
+<body>
+    <h1>Press any key to see the type of symbol</h1>
+    <script>
+        document.addEventListener('keypress', (e) => {
+            let letter = e.key;
+            let message;
+
+            if (letter.length === 1) {
+                if (/[aeiouAEIOU]/.test(letter)) {
+                    message = `${letter} is a vowel.`;
+                } else if (/[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]/.test(letter)) {
+                    message = `${letter} is a consonant.`;
+                } else if (/[0-9]/.test(letter)) {
+                    message = `${letter} is a number.`;
+                } else {
+                    message = `${letter} is a symbol.`;
+                }
+            } else {
+                message = "Please press only one key at a time.";
+            }
+
+            console.log(message);
+        });
+    </script>
+</body>
+
+</html>
