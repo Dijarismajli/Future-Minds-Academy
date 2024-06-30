@@ -4,39 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Vertical Progress Bar</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .progress-container {
+            width: 50px;
+            height: 300px;
+            background-color: #ddd;
+            position: relative;
+            border-radius: 25px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 0;
+            background-color: red;
+            position: absolute;
+            bottom: 0;
+            transition: height 0.5s, background-color 0.5s;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px;
+            border-radius: 3px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .progress-container:hover .tooltip {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="progress-container" id="progressContainer">
+        <div class="progress-bar" id="progressBar"></div>
+        <div class="tooltip" id="tooltip">0%</div>
+    </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const percentageInput = document.getElementById('percentageInput');
-            const updateButton = document.getElementById('updateButton');
-            const progressBar = document.getElementById('progressBar');
+        let percentage = parseInt(prompt("Enter a percentage from 0 to 100:", "0"));
+        if (percentage < 0) percentage = 0;
+        if (percentage > 100) percentage = 100;
 
-            updateButton.addEventListener('click', () => {
-                let percentage = parseInt(percentageInput.value);
+        const progressBar = document.getElementById('progressBar');
+        const tooltip = document.getElementById('tooltip');
 
-                if (isNaN(percentage) || percentage < 0 || percentage > 100) {
-                    alert('Please enter a valid percentage between 0 and 100.');
-                    return;
-                }
+        progressBar.style.height = percentage + '%';
+        tooltip.innerHTML = percentage + '%';
 
-
-                progressBar.style.width = percentage + '%';
-
-
-                if (percentage <= 20) {
-                    progressBar.style.backgroundColor = 'red';
-                } else if (percentage <= 50) {
-                    progressBar.style.backgroundColor = 'orange';
-                } else {
-                    progressBar.style.backgroundColor = 'green';
-                }
-            });
-        });
-
+        if (percentage <= 20) {
+            progressBar.style.backgroundColor = 'red';
+        } else if (percentage <= 50) {
+            progressBar.style.backgroundColor = 'orange';
+        } else if (percentage <= 80) {
+            progressBar.style.backgroundColor = 'yellow';
+        } else {
+            progressBar.style.backgroundColor = 'green';
+        }
     </script>
 </body>
 
