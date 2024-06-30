@@ -4,41 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fibonacci Sequence Generator</title>
+    <title>Function Expressions and Arrow Functions</title>
 </head>
 
 <body>
-    <h1>Fibonacci Sequence Generator</h1>
-    <input type="number" id="numInput" placeholder="Enter a number">
-    <button onclick="generateFibonacci()">Generate</button>
-    <pre id="result"></pre>
-
-    <script>
-        generateFibonacci = function () {
-            const X = parseInt(document.getElementById('numInput').value);
-            const resultElement = document.getElementById('result');
-            if (isNaN(X) || X <= 0) {
-                resultElement.textContent = "Please enter a positive integer.";
-                return;
-            }
-
-            const fibonacciSequence = [];
-            let a = 1, b = 1;
-
-            if (X >= 1) fibonacciSequence.push(a);
-            if (X >= 2) fibonacciSequence.push(b);
-
-            for (let i = 3; i <= X; i++) {
-                let nextTerm = a + b;
-                fibonacciSequence.push(nextTerm);
-                a = b;
-                b = nextTerm;
-            }
-
-            resultElement.textContent = fibonacciSequence.join(', ');
-            console.log(fibonacciSequence.join(', '));
-        }
-    </script>
+    <h1>Check the console for function call results</h1>
+    <script src="script.js"></script>
 </body>
 
 </html>
