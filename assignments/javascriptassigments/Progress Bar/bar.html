@@ -7,78 +7,64 @@
     <title>Vertical Progress Bar</title>
     <style>
         body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
         }
 
         .progress-container {
-            width: 50px;
-            height: 300px;
-            background-color: #ddd;
-            position: relative;
-            border-radius: 25px;
-            overflow: hidden;
+            margin-inline: 1rem;
+            padding: 0, 5rem;
+            display: flex;
+            gap: 0, 5rem;
         }
 
         .progress-bar {
-            width: 100%;
-            height: 0;
-            background-color: red;
             position: absolute;
             bottom: 0;
-            transition: height 0.5s, background-color 0.5s;
+            width: 0%;
+            top: 0;
+            left: 0;
+            background-color: green;
         }
 
-        .tooltip {
-            position: absolute;
-            bottom: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            padding: 5px;
-            border-radius: 3px;
-            opacity: 0;
-            transition: opacity 0.3s;
-            pointer-events: none;
+        .indicator {
+            font-size: 0, 9rem;
+            color: grey;
+            font-family: monospace;
         }
 
-        .progress-container:hover .tooltip {
-            opacity: 1;
+        .progress-bar-wrapper {
+            flex-grow: 1;
+            position: relative;
         }
     </style>
 </head>
 
 <body>
     <div class="progress-container" id="progressContainer">
-        <div class="progress-bar" id="progressBar"></div>
-        <div class="tooltip" id="tooltip">0%</div>
+        <span class="indicator">0%</span>
+        <div class="progress-bar-wrapper">
+            <div class="progress-bar" id="bar"></div>
+        </div>
+        <span class="indicator">100%</span>
     </div>
 
     <script>
-        let percentage = parseInt(prompt("Enter a percentage from 0 to 100:", "0"));
-        if (percentage < 0) percentage = 0;
-        if (percentage > 100) percentage = 100;
+        let percentage = parseInt(prompt('what is the progress?'))
 
-        const progressBar = document.getElementById('progressBar');
-        const tooltip = document.getElementById('tooltip');
+        if (isNaN(percentage) || percentage < 0 || percentage > 100)
 
-        progressBar.style.height = percentage + '%';
-        tooltip.innerHTML = percentage + '%';
-
-        if (percentage <= 20) {
-            progressBar.style.backgroundColor = 'red';
-        } else if (percentage <= 50) {
-            progressBar.style.backgroundColor = 'orange';
+            color;
+        if (percentage <= 50) {
+            color = 'green';
         } else if (percentage <= 80) {
-            progressBar.style.backgroundColor = 'yellow';
+            color = 'yellow';
         } else {
-            progressBar.style.backgroundColor = 'green';
+            color = 'red';
         }
+
+        let progressBar = document.getElementById('bar');
+        progressBar.style.backgroundColor = color;
+        progressBar.style.width = `${percentage}%`
     </script>
 </body>
 

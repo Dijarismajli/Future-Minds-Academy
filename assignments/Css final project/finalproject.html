@@ -2,190 +2,367 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Css final project</title>
-    <link rel="stylesheet" href="./finalproject.css">
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Final Project Css</title>
 </head>
 
-<body class="dgrid ">
-    <aside>
-        <div class="dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z">
-            <h1> CP</h1>
-            <h1> COOL PAGE</h1>
+<body class="dGrid">
+    <aside class="dFlex">
+        <div>
+            <div class="page-title">CP CoolPage</div>
+            <div class="separator"></div>
+            <div class="author-info dFlex">
+                <img src="assets/images/avatar.jpg" alt="John Doe" width="50" height="50">
+                <span class="author-name dFlex">John Doe</span>
+                <span class="material-icons expand-more">expand_more</span>
+            </div>
+            <div class="separator"></div>
         </div>
-        <hr>
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z  card">
-            <figure><img src="./assets/images/avatar.jpg" alt=""></figure>
-            <h1>John Doe</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item active dFlex">
+            <span class="material-icons">dashboard</span> Dashboard
         </div>
-        <hr>
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z bgred ">
-            <figure><img src="./assets/icons/asides/asideDashboard.svg" alt="" class="width"></figure>
-            <h1>Dashboard</h1>
+        <div class="aside-item dFlex">
+            <span class="material-icons">image</span> Pages
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/pages.svg" alt="" class="width"></figure>
-            <h1>Pages</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">apps</span> Components
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/components.svg" alt="" class="width"></figure>
-            <h1>Components</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">content_paste</span> Forms
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/form.svg" alt="" class="width"></figure>
-            <h1>Forms</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">grid_on</span> Tables
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/table.svg" alt="" class="width"></figure>
-            <h1>Tables</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">location_on</span> Map
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card ">
-            <figure><img src="./assets/icons/asides/map.svg" alt="" class="width"></figure>
-            <h1>Maps</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">widgets</span> Widgets
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/widget.svg" alt="" class="width "></figure>
-            <h1>Widgets</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
+        <div class="aside-item dFlex">
+            <span class="material-icons">timeline</span> Charts
+            <span class="material-icons expand-more">expand_more</span>
         </div>
-
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/chart.svg" alt="" class="width"></figure>
-            <h1>Charts</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
-        </div>
-
-
-        <div class="alignitemscenter dgrid gridtemplatecolumnsauto1frauto gap2 margin10pxy0z card">
-            <figure><img src="./assets/icons/asides/calendar.svg" alt="" class="width"></figure>
-            <h1>Calendar</h1>
-            <figure><img src="./assets/icons/asides/expandMore.svg" alt="" class="width"></figure>
-        </div>
+        <div class="aside-item dFlex">
+            <span class="material-icons">date_range</span> Calendar
+            <span class="material-icons expand-more">expand_more</span>
         </div>
     </aside>
-
-    <div class="bggrey">
+    <div class="container dFlex">
         <header>
-            <div class="dFlex alignitemscenter">
-                <figure title="See more">
-                    <img src="./assets/icons/header/more.svg" alt="" class="Dashboard bgwhite width circle">
-                </figure>
-                <h1>Dashboard</h1>
+            <div class="header-content ">
+                <div class="dash-menu dNone">
+                    <div class="left">Dashboard</div>
+                </div>
+                <div class="hamburger dNone">
+                    <span class="header-icon tooltip-hover" title="" data-tooltip="Menu">
+                        <span class="material-icons menu">menu</span>
+                    </span>
+                </div>
+                <div class="dashboard-icon dFlex">
+                    <span class="header-icon tooltip-hover" title="" data-tooltip="See More">
+                        <span class="material-icons">more_vert</span>
+                    </span>
+                    <span class="header-icon-dashboard">Dashboard</span>
+                </div>
+                <div class="header-content">
+                    <div class="search-container dFlex">
+                        <input type="text" placeholder="Search" class="search-input">
+                        <span class="search-icon-container search-icon dFlex">
+                            <span class="header-icon tooltip-hover " title="" data-tooltip="Search">
+                                <span class="material-icons">search</span>
+                            </span>
+                        </span>
+                        <div class="header-icons dFlex">
+                            <span class=" header-icon tooltip-hover" title="" data-tooltip="Dashboard">
+                                <span class="material-icons" target="blank">dashboard</span>
+                            </span>
+                            <div class="header-icon dFlex">
+                                <div tabindex="0" class="notification-box">
+                                    <div class="notification-number">5</div>
+                                    <span class=" header-icon tooltip-hover" title="" data-tooltip="Notification">
+                                        <span class="material-icons">notifications</span>
+                                    </span>
+                                    <div class="notification-down dNone">
+                                        <ul>
+                                            <li>John Doe sent a message</li>
+                                            <li>Someone viewed your profile</li>
+                                            <li>John Doe sent a message</li>
+                                            <li>Someone viewed your profile</li>
+                                            <li>Another notification</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <span class="header-icon tooltip tooltip-hover dFlex" title="" data-tooltip="Profile">
+                                <span class="material-icons">person</span>
+                            </span>
+                        </div>
+                    </div>
+        </header>
+        <div class="sales-container dFlex]">
+            <div class="global-sales dFlex">
+                <span class="material-icons dFlex globicon ">language</span>
+                <h1>Global Sale by Top Locations</h1>
             </div>
-            <div class="dFlex gap2 ">
-                <form class="dFlex">
-                    <input id="Search" type="Search" placeholder="Search" class="search">
-                    <label for="Search">
-                        <figure title="Search">
-                            <img src="./assets/icons/header/search.svg" class="width circle bgwhite">
-                        </figure>
-                    </label>
-                </form>
-                <figure title="Dashboards">
-                    <img src="./assets/icons/header/headerDashboard.svg" alt="" class="width">
-                </figure>
-                <div class="notifications">
-                    <figure title="notifications">
-                        <img src="./assets/icons/header/notifications.svg" alt="" class="width ">
-                    </figure>
-                    <div class="info">
-                        <p>5</p>
+            <div class="locations dFlex">
+                <div class="table-container dFlex">
+                    <table>
+                        <tr>
+                            <td class="state-name dFlex"><img src="assets/flags/albania.svg" class="flag"
+                                    alt="Albania Flag"> Albania</td>
+                            <td>2920</td>
+                            <td>53.25%</td>
+                        </tr>
+                        <tr>
+                            <td class="state-name dFlex">
+                                <img src="assets/flags/us.svg" class="flag" alt="Us Flag"> Us
+                            </td>
+                            <td>1300</td>
+                            <td>4.34%</td>
+                        </tr>
+                        <tr>
+                            <td class="state-name dFlex">
+                                <img src="assets/flags/kosovo.svg" class="flag" alt="Kosvo Flag">
+                                Kosovo
+                            </td>
+                            <td>760</td>
+                            <td>23.49%</td>
+                        </tr>
+                        <tr>
+                            <td class="state-name dFlex">
+                                <img src="assets/flags/italy.svg" class="flag" alt="UK Flag"> Italy
+                            </td>
+                            <td>690</td>
+                            <td>13.35%</td>
+                        </tr>
+                        <tr>
+                            <td class="state-name dFlex">
+                                <img src="assets/flags/germany.svg" class="flag" alt="Romania Flag"> Germany
+                            </td>
+                            <td>600</td>
+                            <td>7.89%</td>
+                        </tr>
+                        <tr>
+                            <td class="state-name dFlex">
+                                <img src="assets/flags/albania.svg" class="flag" alt="Brasil Flag"> Albania
+                            </td>
+                            <td>550</td>
+                            <td>5.94%</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="map-container dFlex">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.33750346623!2d-73.97968099999999!3d40.6974881!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1699646612882!5m2!1sen!2s"
+                        allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+        <div class="grid-blog dGrid">
+            <div class="blog-wraper">
+                <div class="blog">
+                    <div class="blog-top ">
+                        <span class="material-icons dFlex chair">chair</span>
+                    </div>
+                    <div class="blog-info dFlex">
+                        <span class="data">Bookings</span>
+                        <span class="numbers">184</span>
                     </div>
                 </div>
-                <div class="hidden">
-                    <p>bvskvv</p>
-                    <p>aljvcmhma</p>
-                    <p>ajvvcaj</p>
-                    <p>ascaeww</p>
-                    <p>awkqwjcdw</p>
+                <div class="separator"></div>
+                <div class="blog-space">
+                    <span class="material-icons dFlex"> warning</span>Get more space!
                 </div>
-
-                <figure title="Profile">
-                    <img src="./assets/icons/header/headerAvatar.svg" alt="" class="width">
-                </figure>
             </div>
-        </header>
-
-        <main class="bgwhite" style="display: flex; flex-direction: column; align-items: flex-start; padding: 20px;">
-            <div class="maincard">
-                <figure class="mainimg"><img src="./assets/icons/cards/language.svg" alt=""></figure>
+            <div class="blog-wraper dFlex">
+                <div class="blog">
+                    <div class="blog-top  dFlex">
+                        <span class="material-icons dFlex bar_chart">bar_chart</span>
+                    </div>
+                    <div class="blog-info dFlex">
+                        <span class="data">Website visits</span>
+                        <span class="numbers">75.521</span>
+                    </div>
+                </div>
+                <div class="separator"></div>
+                <div class="blog-space">
+                    <span class="material-icons">sell</span>Tracked from Google Analistycs!
+                </div>
             </div>
-
-            <section style="display: flex; flex-direction: column; align-items: flex-start;">
-                <article>
-                    <h1>Global Sales by Top Location</h1>
-                </article>
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/albania.svg" alt="" class="width">
-                    </figure>
-                    <p style="margin-right: 10px;">2.983</p>
-                    <p style="margin-right: 10px;">55%</p>
-
+            <div class="blog-wraper">
+                <div class="blog">
+                    <div class="blog-top">
+                        <span class="material-icons store">store</span>
+                    </div>
+                    <div class="blog-info">
+                        <span class="data">Revenue</span>
+                        <span class="numbers">$34.245</span>
+                    </div>
                 </div>
-                <hr style="width: 100%; margin: 0;">
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/germany.svg" alt="" class="width">
-                    </figure>
-                    <p style="margin-right: 10px;">2.283</p>
-                    <p style="margin-right: 10px;">52%</p>
+                <div class="separator"></div>
+                <div class="blog-space">
+                    <span class="material-icons"> date_range</span>Last 24 hours
                 </div>
-                <hr style="width: 100%; margin: 0;">
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/italy.svg" alt="" class="width">
-                    </figure>
-                    <p style="margin-right: 10px;">2.683</p>
-                    <p style="margin-right: 10px;">55%</p>
+            </div>
+            <div class="blog-wraper">
+                <div class="blog dFlex">
+                    <div class="blog-top">
+                        <span class="material-icons public">public</span>
+                    </div>
+                    <div class="blog-info">
+                        <span class="data">Followers</span>
+                        <span class="numbers">+245</span>
+                    </div>
                 </div>
-                <hr style="width: 100%; margin: 0;">
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/kosovo.svg" alt="" class="width">
-                    </figure>
-                    <p style="margin-right: 10px;">2.183</p>
-                    <p style="margin-right: 10px;">5%</p>
-
-
+                <div class="separator"></div>
+                <div class="blog-space">
+                    <span class="material-icons"> update</span>Just Updated
                 </div>
-                <hr style="width: 100%; margin: 0;">
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/albania.svg" alt="" class="width">
-                    </figure>
-                    <p style="margin-right: 10px;">2.083</p>
-                    <p style="margin-right: 10px;">9%</p>
+            </div>
+        </div>
+        <span class="listing">
+            <p>Manage Listing</p>
+        </span>
+        <div class="cards dGrid">
+            <div class="card-wraper">
+                <div class="card">
+                    <div class="card-hovered">
+                        <div class="img-hover">
+                            <img src="assets/images/card-3.jpeg" alt="Image of card">
+                            <div class="card-icons">
+                                <span class="header-icon tooltip-hover burst_mode" title="" data-tooltip="View">
+                                    <span class="material-icons">burst_mode</span>
+                                </span>
+                                <span class="header-icon tooltip-hover edit" title="" data-tooltip="Edit">
+                                    <span class="material-icons">edit</span>
+                                </span>
+                                <span class="header-icon tooltip-hover close" title="" data-tooltip="Delete">
+                                    <span class="material-icons">close</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Cozy 5 Stars Apartment</span>
+                        <span class="card-paragraf">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, quisquam et. Fugiat
+                            sunt
+                            minima deleniti harum, repellat minus explicabo dolor id non, perspiciatis molestiae iste!
+                            Consectetur natus consequuntur dolore reiciendis.
+                        </span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="bottom-content">
+                        <div class="price">
+                            <span>$899/night</span>
+                        </div>
+                        <div class="location">
+                            <span class="material-icons">location_on</span>
+                            <span>Barcelon,Spain</span>
+                        </div>
+                    </div>
                 </div>
-                <hr style="width: 100%; margin: 0; color:black;">
-                <div style="display: flex; align-items: center;">
-                    <figure style="margin-right: 10px;"><img src="./assets/flags/us.svg" alt="" class="width"></figure>
-                    <p style="margin-right: 10px;">2.183</p>
-                    <p style="margin-right: 10px;">33%</p>
+            </div>
+            <div class="card-wraper">
+                <div class="card">
+                    <div class="card-hovered">
+                        <div class="img-hover">
+                            <img src="assets/images/card-2.jpeg" alt="Image of card">
+                            <div class="card-icons">
+                                <span class="header-icon tooltip-hover burst_mode" title="" data-tooltip="View">
+                                    <span class="material-icons">burst_mode</span>
+                                </span>
+                                <span class="header-icon tooltip-hover edit" title="" data-tooltip="Edit">
+                                    <span class="material-icons">edit</span>
+                                </span>
+                                <span class="header-icon tooltip-hover close" title="" data-tooltip="Delete">
+                                    <span class="material-icons">close</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Office Studio</span>
+                        <span class="card-paragraf">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, quisquam et. Fugiat
+                            sunt
+                            minima deleniti harum, repellat minus explicabo dolor id non, perspiciatis molestiae iste!
+                            Consectetur natus consequuntur dolore reiciendis.
+                        </span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="bottom-content">
+                        <div class="price">
+                            <span>$1.119/night</span>
+                        </div>
+                        <div class="location">
+                            <span class="material-icons">location_on</span>
+                            <span>London,UK</span>
+                        </div>
+                    </div>
                 </div>
-
-    </div>
-    </section>
-    </main>
-
-
-
-    <footer>
-
-    </footer>
+            </div>
+            <div class="card-wraper">
+                <div class="card">
+                    <div class="card-hovered">
+                        <div class="img-hover">
+                            <img src="assets/images/card-1.jpeg" alt="Image of card">
+                            <div class="card-icons">
+                                <span class="header-icon tooltip-hover burst_mode" title="" data-tooltip="View">
+                                    <span class="material-icons">burst_mode</span>
+                                </span>
+                                <span class="header-icon tooltip-hover edit" title="" data-tooltip="Edit">
+                                    <span class="material-icons">edit</span>
+                                </span>
+                                <span class="header-icon tooltip-hover close" title="" data-tooltip="Delete">
+                                    <span class="material-icons">close</span>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-info">
+                        <span class="card-title">Beautiful Castle</span>
+                        <span class="card-paragraf">
+                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Distinctio, quisquam et. Fugiat
+                            sunt
+                            minima deleniti harum, repellat minus explicabo dolor id non, perspiciatis molestiae iste!
+                            Consectetur natus consequuntur dolore reiciendis.
+                        </span>
+                    </div>
+                    <div class="separator"></div>
+                    <div class="bottom-content">
+                        <div class="price">
+                            <span>$459/night</span>
+                        </div>
+                        <div class="location">
+                            <span class="material-icons">location_on</span>
+                            <span>Milano,Italy</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+        <footer class="dFlex">
+            <div class="info">
+                <span>Home</span> <span>Company</span> <span>Protofolio</span>
+                <span>Blog</span>
+            </div>
+            <div class="rights">
+                <span>© John Doe 2023</span>
+            </div>
+        </footer>
     </div>
 </body>
 
