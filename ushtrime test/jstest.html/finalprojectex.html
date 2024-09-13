@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Center</title>
+</head>
+
+<body>
+    <form action="#">
+        <input id="gTitle" type="text" placeholder="Game Title" required><br>
+        <input id="gDesc" type="text" placeholder="Description" required><br>
+        <input id="gViews" type="number" placeholder="0" required><br>
+        <input id="gLikes" type="number" placeholder="0" required><br><br>
+
+        <button id="addGameBTN">Add Game</button>
+    </form>
+    <ul id="listGames">
+        <li>
+            <h3>GTA</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati officiis vero et excepturi distinctio
+                atque asperiores accusantium voluptate dolorum illum tenetur minus cum, provident enim iusto aspernatur
+                tempora. Quos, nihil?</p>
+            <p>Views: 10</p>
+            <p>Likes: 233</p>
+        </li>
+    </ul>
+
+    <script src="data.js"></script>
+    <script>
+        const listGames = document.querySelector('#listGames');
+        const gTitle = document.querySelector('#gTitle');
+        const gDesc = document.querySelector('#gDesc');
+        const gViews = document.querySelector('#gViews');
+        const gLikes = document.querySelector('#gLikes');
+        const addGameBTN = document.querySelector('#addGameBTN');
+
+        renderList();
+
+        addGameBTN.addEventListener('click', function () {
+            let newGame = {
+                name: gTitle.value,
+                desc: gDesc.value,
+                views: gViews.value,
+                likes: gLikes.value
+            }
+            allGames.push(newGame);
+            renderList()
+        });
+
+        function renderList() {
+            listGames.innerHTML = '';
+            for (let i = 0; i < allGames.length; i++) {
+                listGames.innerHTML += `
+                <li>
+                    <h3>${allGames[i].name}</h3>
+                    <p>${allGames[i].desc}</p>
+                    <p>Views: ${allGames[i].views}</p>
+                    <p>Likes: ${allGames[i].likes}</p>
+                    <p><a onclick="removeItem(${i})" href="#">Remove</a></p>
+                </li>
+            `;
+            }
+        }
+
+        function removeItem(g) {
+            allGames.splice(g, 1);
+            renderList();
+        }
+    </script>
+</body>
+
+</html>

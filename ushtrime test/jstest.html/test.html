@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pre Final</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 20px;
+        }
+
+        p {
+            border: 2px solid gray;
+            padding: 20px;
+            width: 500px;
+        }
+
+        textarea {
+            width: 500px;
+            height: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="showhideBTN">Hide Box</button> <button id="redBTN">Red</button> <button id="blueBTN">Blue</button>
+    <p id="textCont">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas praesentium maxime nulla deleniti
+        nihil veritatis porro doloremque similique nobis architecto unde debitis nam ipsa voluptate est culpa, cum quasi
+        harum!</p>
+
+    <textarea name="movetotop" id="movetotop"></textarea><br>
+    <button id="textbox">Mote to top</button>
+
+    <script>
+        const showhideBTN = document.querySelector('#showhideBTN');
+        const textCont = document.querySelector('#textCont');
+        const redBTN = document.querySelector('#redBTN');
+        const blueBTN = document.querySelector('#blueBTN');
+        const movetotop = document.querySelector("#movetotop")
+        const textbox = document.querySelector("#textbox")
+
+        let showhide = true;
+
+        showhideBTN.addEventListener('click', function () {
+            if (showhide) {
+                textCont.style.visibility = 'hidden';
+                showhideBTN.textContent = 'Show Box';
+                showhide = false;
+            }
+            else {
+                textCont.style.visibility = 'visible';
+                showhideBTN.textContent = 'Hide Box';
+                showhide = true;
+            }
+        });
+
+        redBTN.addEventListener('click', () => {
+            textCont.style.background = 'red';
+        });
+
+        blueBTN.addEventListener('click', () => {
+            textCont.style.background = 'blue';
+        })
+
+
+        movetotop.addEventListener("click", () => {
+
+        })
+
+        textbox.addEventListener('click', () => {
+
+        })
+
+    </script>
+</body>
+
+</html>

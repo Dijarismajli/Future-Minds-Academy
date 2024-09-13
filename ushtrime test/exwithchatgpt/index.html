@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Games Hub</h1>
+
+        <!-- Game Input Form -->
+        <div class="game-form">
+            <h2>Add a Game</h2>
+            <input type="text" id="gameTitle" placeholder="Game Title">
+            <input type="number" id="gameViews" placeholder="Views">
+            <input type="number" id="gameLikes" placeholder="Likes">
+            <input type="number" id="gameFans" placeholder="Fans">
+            <input type="file" id="gameImage" accept="image/*" placeholder="Game Image">
+            <input type="url" id="gameTrailer" placeholder="Trailer URL (YouTube link)">
+            <button id="addGameButton">Add Game</button>
+        </div>
+
+        <!-- Scrollable Games List Display -->
+        <div id="gamesList">
+            <h2>Games List</h2>
+            <div class="games-scrollable">
+                <ul id="gameItems">
+                    <!-- Game items will appear here dynamically -->
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
+
+<script>
+    // Selecting DOM elements
+    const addGameButton = document.getElementById('addGameButton');
+    const gameTitleInput = document.getElementById('gameTitle');
+    const gameViewsInput = document.getElementById('gameViews');
+    const gameLikesInput = document.getElementById('gameLikes');
+    const gameFansInput = document.getElementById('gameFans');
+    const gameImageInput = document.getElementById('gameImage');
+    const gameTrailerInput = document.getElementById('gameTrailer');
+    const gameItems = document.getElementById('gameItems');
+
+    // Function to add a new game
+    function addGame() {
+        // Get input values
+        const title = gameTitleInput.value;
+        const views = gameViewsInput.value;
+        const likes = gameLikesInput.value;
+        const fans = gameFansInput.value;
+        const trailerURL = gameTrailerInput.value;
+        const imageFile = gameImageInput.files[0];
+
+        if (title === '' || views === '' || likes === '' || fans === '' || !imageFile || trailerURL === '') {
+            alert('Please fill in all fields.');
+            return;
+        }
+
+        // Create a new game item (li element)
+        const li = document.createElement('li');
+
+        // Create the game information div
+        const gameInfo = document.createElement('div');
+        gameInfo.classList.add('game-info');
+        gameInfo.innerHTML = `<strong>${title}</strong> - Views: ${views}, Likes: ${likes}, Fans: ${fans}`;
+
+        // Create image element for game
+        const img = document.createElement('img');
+        img.src = URL.createObjectURL(imageFile);
+
+        // Create an iframe for the video trailer
+        const iframe = document.createElement('iframe');
+        iframe.src = trailerURL.replace("watch?v=", "embed/");  // Adjust YouTube URL for embedding
+
+        // Create delete button
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.classList.add('delete-button');
+        deleteButton.addEventListener('click', function () {
+            li.remove();  // Remove the game item
+        });
+
+        // Append the game info, image, video, and delete button to the list item
+        li.appendChild(gameInfo);
+        li.appendChild(img);
+        li.appendChild(iframe);
+        li.appendChild(deleteButton);
+
+        // Add the new list item to the games list
+        gameItems.appendChild(li);
+
+        // Clear input fields after adding the game
+        gameTitleInput.value = '';
+        gameViewsInput.value = '';
+        gameLikesInput.value = '';
+        gameFansInput.value = '';
+        gameImageInput.value = '';
+        gameTrailerInput.value = '';
+    }
+
+    // Add event listener to the "Add Game" button
+    addGameButton.addEventListener('click', addGame);
+
+</script>
+</body>
+
+</html>
