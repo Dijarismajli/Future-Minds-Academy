@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="login-page">
+        <h1>Login</h1>
+        <form id="login-form">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+        <p id="login-error" style="color:red;"></p>
+    </div>
+
+    <div id="dashboard-page" style="display:none;">
+        <h1>Admin Dashboard</h1>
+        <button id="add-new-game-btn">Add New Game</button>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Thumbnail</th>
+                    <th>URL</th>
+                    <th>Likes</th>
+                    <th>Views</th>
+                    <th>Edit</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody id="game-list"></tbody>
+        </table>
+    </div>
+
+    <!-- Modal for Editing / Adding -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-edit-modal">&times;</span>
+            <h2 id="modal-title">Edit Game</h2>
+            <form id="edit-form" action="#">
+                <input type="text" id="edit-name" placeholder="Game Name" required>
+
+                <!-- Thumbnail Dropdown -->
+                <select id="edit-thumbnail" required>
+                    <option value="images/cgfc.avif">CG FC</option>
+                    <option value="images/supermarket.avif">Supermarket Game</option>
+                    <option value="images/gun-strike-runner.avif">Gun Strike Runner</option>
+                </select>
+
+                <input type="url" id="edit-url" placeholder="Game URL" required>
+                <input type="number" id="edit-likes" placeholder="Likes" required>
+                <input type="number" id="edit-views" placeholder="Views" required>
+                <button type="submit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Remove Confirmation -->
+    <div id="remove-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="close-remove-modal">&times;</span>
+            <h2>Confirm Removal</h2>
+            <p>Are you sure you want to remove this game?</p>
+            <button id="confirm-remove">Yes, Remove</button>
+            <button id="cancel-remove">Cancel</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
