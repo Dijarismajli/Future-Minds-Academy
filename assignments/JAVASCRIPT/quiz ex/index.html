@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise 1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <button class="btn startBtn" id="startQuiz">Start Quiz</button>
+    <div class="instructions hidden" id="instructionsBox">
+        <h3>Quiz instruction</h3>
+        <div id="questionAsk">
+
+        </div>
+
+        <div>
+            <button class="btn-outline" id="exitBox">Exit</button>
+            <button class="btn-outline" id="contBTN">Continue</button>
+        </div>
+    </div>
+
+    <div class="instructions hidden" id="quizArea">
+        <h1>Quiz area</h1>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed obcaecati repellendus tempore, quisquam, facere
+            soluta non ullam quaerat porro minima voluptate rem neque aperiam repellat ad accusamus voluptatibus
+            perferendis placeat.</p>
+    </div>
+
+    <script src="questions.js"></script>
+    <script>
+        const startQuiz = document.querySelector('#startQuiz');
+        const instructionsBox = document.querySelector('#instructionsBox');
+        const exitBox = document.querySelector('#exitBox');
+        const quizArea = document.querySelector('#quizArea');
+        const contBTN = document.querySelector('#contBTN');
+        const questionAsk = document.querySelector('#questionAsk');
+
+        console.log(allQuestions[1].question);
+
+        startQuiz.addEventListener('click', function () {
+            instructionsBox.classList.add('show');
+        });
+
+        exitBox.addEventListener('click', function () {
+            instructionsBox.classList.remove('show');
+        });
+
+        contBTN.addEventListener('click', function () {
+            instructionsBox.classList.remove('show');
+            quizArea.classList.add('show');
+        });
+
+
+
+        for (let i = 0; i < allQuestions.length; i++) {
+            let checkAnswer = '';
+
+            for (let j = 0; j < allQuestions[i].options.length; j++) {
+                if (allQuestions[i].answer === allQuestions[i].options[j]) {
+                    checkAnswer += `<li class="green">${allQuestions[i].options[j]}</li>`;
+                } else {
+                    checkAnswer += `<li>${allQuestions[i].options[j]}</li>`;
+                }
+            }
+
+            questionAsk.innerHTML += `
+            <h4>${allQuestions[i].question}</h4>
+            <ol>
+                ${checkAnswer}
+            </ol>
+        `;
+        }
+    </script>
+</body>
+
+</html>
