@@ -1,79 +1,85 @@
+<!-- Created By CodingNepal - www.codingnepalweb.com  -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exercise 1</title>
+    <title>Awesome Quiz App | CodingNepal</title>
     <link rel="stylesheet" href="style.css">
+    <!-- FontAweome CDN Link for Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
 </head>
 
 <body>
-    <button class="btn startBtn" id="startQuiz">Start Quiz</button>
-    <div class="instructions hidden" id="instructionsBox">
-        <h3>Quiz instruction</h3>
-        <div id="questionAsk">
+    <!-- start Quiz button -->
+    <div class="start_btn"><button>Start Quiz</button></div>
 
+    <!-- Info Box -->
+    <div class="info_box">
+        <div class="info-title"><span>Some Rules of this Quiz</span></div>
+        <div class="info-list">
+            <div class="info">1. You will have only <span>15 seconds</span> per each question.</div>
+            <div class="info">2. Once you select your answer, it can't be undone.</div>
+            <div class="info">3. You can't select any option once time goes off.</div>
+            <div class="info">4. You can't exit from the Quiz while you're playing.</div>
+            <div class="info">5. You'll get points on the basis of your correct answers.</div>
         </div>
-
-        <div>
-            <button class="btn-outline" id="exitBox">Exit</button>
-            <button class="btn-outline" id="contBTN">Continue</button>
+        <div class="buttons">
+            <button class="exit_quiz">Exit Quiz</button>
+            <button id="continue_btn" class="restart">Continue</button>
         </div>
     </div>
 
-    <div class="instructions hidden" id="quizArea">
-        <h1>Quiz area</h1>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed obcaecati repellendus tempore, quisquam, facere
-            soluta non ullam quaerat porro minima voluptate rem neque aperiam repellat ad accusamus voluptatibus
-            perferendis placeat.</p>
+    <!-- Quiz Box -->
+    <div class="quiz_box">
+        <header>
+            <div class="title">Awesome Quiz Application</div>
+            <div class="timer">
+                <div class="time_left_txt">Time Left</div>
+                <div class="timer_sec">15</div>
+            </div>
+            <div class="time_line"></div>
+        </header>
+        <section>
+            <div class="que_text">
+                <!-- Here I've inserted question from JavaScript -->
+            </div>
+            <div class="option_list">
+
+
+            </div>
+        </section>
+
+        <!-- footer of Quiz Box -->
+        <footer>
+            <div class="total_que">
+                <!-- Here I've inserted Question Count Number from JavaScript -->
+            </div>
+            <button class="next_btn">Next Que</button>
+        </footer>
     </div>
 
+    <!-- Result Box -->
+    <div class="result_box">
+        <div class="icon">
+            <i class="fas fa-crown"></i>
+        </div>
+        <div class="complete_text">You've completed the Quiz!</div>
+        <div class="score_text">
+            <!-- Here I've inserted Score Result from JavaScript -->
+        </div>
+        <div class="buttons">
+            <button class="restart" id="replay-quiz">Replay Quiz</button>
+        </div>
+    </div>
+
+    <!-- Inside this JavaScript file I've inserted Questions and Options only -->
     <script src="questions.js"></script>
-    <script>
-        const startQuiz = document.querySelector('#startQuiz');
-        const instructionsBox = document.querySelector('#instructionsBox');
-        const exitBox = document.querySelector('#exitBox');
-        const quizArea = document.querySelector('#quizArea');
-        const contBTN = document.querySelector('#contBTN');
-        const questionAsk = document.querySelector('#questionAsk');
 
-        console.log(allQuestions[1].question);
+    <!-- Inside this JavaScript file I've coded all Quiz Codes -->
+    <script src="script.js"></script>
 
-        startQuiz.addEventListener('click', function () {
-            instructionsBox.classList.add('show');
-        });
-
-        exitBox.addEventListener('click', function () {
-            instructionsBox.classList.remove('show');
-        });
-
-        contBTN.addEventListener('click', function () {
-            instructionsBox.classList.remove('show');
-            quizArea.classList.add('show');
-        });
-
-
-
-        for (let i = 0; i < allQuestions.length; i++) {
-            let checkAnswer = '';
-
-            for (let j = 0; j < allQuestions[i].options.length; j++) {
-                if (allQuestions[i].answer === allQuestions[i].options[j]) {
-                    checkAnswer += `<li class="green">${allQuestions[i].options[j]}</li>`;
-                } else {
-                    checkAnswer += `<li>${allQuestions[i].options[j]}</li>`;
-                }
-            }
-
-            questionAsk.innerHTML += `
-            <h4>${allQuestions[i].question}</h4>
-            <ol>
-                ${checkAnswer}
-            </ol>
-        `;
-        }
-    </script>
 </body>
 
 </html>

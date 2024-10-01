@@ -8,12 +8,15 @@ const option_list = document.querySelector('.option_list');
 const next_btn = document.querySelector('.next_btn');
 const timer_sec = document.querySelector('.timer_sec');
 const time_line = document.querySelector('.time_line');
+const total_que = document.querySelector('.total_que');
 
 let currentQuestion = 0;
 let timeTick = 10;
-let timerLine = 0;
+let timerLineA = 0;
+let timerLineAnime;
+let ticker;
 
-//i shtin n funksion butonat
+//i qet boksat
 start_btn.addEventListener('click', function () {
     info_box.classList.add('activeInfo');
 });
@@ -30,10 +33,8 @@ continue_btn.addEventListener('click', function () {
 });
 
 function loadQuestion(q) {
-    timeTick = 10;
-    timerLine = 0;
-    timerLineA = 0;
-    que_text.textContent = questions[q].question;//i qet pytjet
+    reset()
+    que_text.textContent = questions[q].question;//e qet pytjen
     option_list.innerHTML = '';
     //i qet opcionet
     for (let i = 0; i < questions[q].options.length; i++) {
@@ -44,10 +45,12 @@ function loadQuestion(q) {
         `;
     }
     next_btn.style.display = "none";//e jek butonin next
-    //i qet kejt pytjet amo nuk i len me kalu numrin
+    //i qet pytjet amo ju jep limit deri sa jan pytjet
     if (currentQuestion != questions.length - 1) {
         currentQuestion++;
     }
+
+    total_que.textContent = currentQuestion + " / " + questions.length + " questions";//i qet numrin e pytjev
 }
 
 next_btn.addEventListener('click', function () {
@@ -55,34 +58,50 @@ next_btn.addEventListener('click', function () {
 })
 
 function optionClicked() {
-    next_btn.style.display = "inline";
-}
+    next_btn.style.display = "inline";//e qet next butonin
+    clearInterval(ticker);// e fshin intervalen
+    clearInterval(timerLineAnime);// e fshin intervalen
 
-let ticker = setInterval(timer, 1000); // every 1 second call the function timer()
-//i qet secondat edhe i len me ec deri n 0
+    disableQ()//e thirr funksion qe me bo disable opcionet mos me mujt me kliku ma shum se
+}
+//i qet sekondat
 function timer() {
     timer_sec.textContent = timeTick;
     if (timeTick != 0) {
         timeTick--;
     }
     else {
-        // aftr Timer is 0
-        option_list.innerHTML = '';
-        //i bon opcionet mos me mujt me kliku masi t kalon koha
-        for (let i = 0; i < questions[currentQuestion - 1].options.length; i++) {
-            option_list.innerHTML += `
-            <div class="option disabled">
-                <span>${questions[currentQuestion - 1].options[i]}</span>
-            </div>
-            `;
-        }
-        next_btn.style.display = "inline";
+        disableQ()
+        next_btn.style.display = "inline";//e qet next butonin masi kalojn sekondat
     }
+
 }
 //e qet vijen e kaltert
-let timerLineAnime = setInterval(timerLineFill, 100);
-let timerLineA = 0;
 function timerLineFill() {
     time_line.style.width = timerLineA + 'px';
-    timerLineA += 5.3;
+    if (timerLineA <= 548) {
+        timerLineA += 5.3;
+    }
+}
+// e nal sekondat vijen edhe i nal nqat sekond qe e klikon opcionin 
+function reset() {
+    timer_sec.textContent = "15";
+    timeTick = 9;
+    timerLineA = 0;
+    timerLineAnime = setInterval(timerLineFill, 100);
+    ticker = setInterval(timer, 1000);
+}
+
+function disableQ() {
+
+    // aftr Timer is 0 disable clicking
+    option_list.innerHTML = '';
+    // e bon mos me mujt me kliku opcionet masi kalon koha
+    for (let i = 0; i < questions[currentQuestion - 1].options.length; i++) {
+        option_list.innerHTML += `
+        <div class="option disabled">
+            <span>${questions[currentQuestion - 1].options[i]}</span>
+        </div>
+        `;
+    }
 }
