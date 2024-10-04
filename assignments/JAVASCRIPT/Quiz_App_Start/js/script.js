@@ -93,8 +93,6 @@ function reset() {
 }
 
 function disableQ() {
-
-    // aftr Timer is 0 disable clicking
     option_list.innerHTML = '';
     // e bon mos me mujt me kliku opcionet masi kalon koha
     for (let i = 0; i < questions[currentQuestion - 1].options.length; i++) {
