@@ -10,6 +10,7 @@ const timer_sec = document.querySelector('.timer_sec');
 const time_line = document.querySelector('.time_line');
 const total_que = document.querySelector('.total_que');
 
+//variablat
 let currentQuestion = 0;
 let timeTick = 10;
 let timerLineA = 0;
@@ -39,7 +40,7 @@ function loadQuestion(q) {
     //i qet opcionet
     for (let i = 0; i < questions[q].options.length; i++) {
         option_list.innerHTML += `
-        <div class="option" onclick="optionClicked()">
+        <div class="option" onclick="optionClicked()"${i}>
             <span>${questions[q].options[i]}</span>
         </div>
         `;
@@ -57,12 +58,11 @@ next_btn.addEventListener('click', function () {
     loadQuestion(currentQuestion);
 })
 
-function optionClicked() {
+function optionClicked(o) {
     next_btn.style.display = "inline";//e qet next butonin
     clearInterval(ticker);// e fshin intervalen
     clearInterval(timerLineAnime);// e fshin intervalen
-
-    disableQ()//e thirr funksion qe me bo disable opcionet mos me mujt me kliku ma shum se
+    disableQ(o)//e thirr funksion qe me bo disable opcionet mos me mujt me kliku ma shum se 1 her
 }
 //i qet sekondat
 function timer() {
@@ -92,14 +92,24 @@ function reset() {
     ticker = setInterval(timer, 1000);
 }
 
-function disableQ() {
+function disableQ(o) {
     option_list.innerHTML = '';
     // e bon mos me mujt me kliku opcionet masi kalon koha
-    for (let i = 0; i < questions[currentQuestion - 1].options.length; i++) {
+    let allOptions = questions[currentQuestion - 1].options
+    //i qet cila pytje osht mir e qet me t gjelbert edhe nese se ke prek amo pik nuk tjep
+    for (let i = 0; i < allOptions.length; i++) {
+        if (allOptions[i] == questions[currentQuestion - 1].answer) {
+            option_list.innerHTML += `
+            <div class="option correct disabled">
+                <span>${questions[currentQuestion - 1].options[i]}</span>
+            </div>
+            `;
+        }
         option_list.innerHTML += `
-        <div class="option disabled">
-            <span>${questions[currentQuestion - 1].options[i]}</span>
-        </div>
-        `;
+            <div class="option  disabled">
+                   <span>${questions[currentQuestion - 1].options[i]}</span>
+            </div>`;
     }
+
 }
+////kur t klikojm me ja pasu te cili butoon ke kliku me this
