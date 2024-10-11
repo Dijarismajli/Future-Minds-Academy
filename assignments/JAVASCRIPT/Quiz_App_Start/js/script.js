@@ -40,7 +40,7 @@ function loadQuestion(q) {
     //i qet opcionet
     for (let i = 0; i < questions[q].options.length; i++) {
         option_list.innerHTML += `
-        <div class="option" onclick="optionClicked()"${i}>
+        <div class="option" onclick="optionClicked()">
             <span>${questions[q].options[i]}</span>
         </div>
         `;
@@ -50,7 +50,6 @@ function loadQuestion(q) {
     if (currentQuestion != questions.length - 1) {
         currentQuestion++;
     }
-
     total_que.textContent = currentQuestion + " / " + questions.length + " questions";//i qet numrin e pytjev
 }
 
@@ -102,14 +101,11 @@ function disableQ(o) {
             option_list.innerHTML += `
             <div class="option correct disabled">
                 <span>${questions[currentQuestion - 1].options[i]}</span>
-            </div>
-            `;
+            </div>`;
         }
         option_list.innerHTML += `
-            <div class="option  disabled">
-                   <span>${questions[currentQuestion - 1].options[i]}</span>
-            </div>`;
+    <div class="option  disabled">
+        <span>${questions[currentQuestion - 1].options[i]}</span>
+    </div>`;
     }
-
 }
-////kur t klikojm me ja pasu te cili butoon ke kliku me this
