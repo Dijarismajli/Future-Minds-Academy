@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scop</title>
+
+    <style>
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul id="list">
+        <!-- <li onclick="navg(this,0)">Home</li> -->
+
+    </ul>
+
+    <script>
+        const list = document.querySelector('#list')
+        let nav = ['Home', 'Services', 'About', 'Contact']
+
+        for (let i = 0; i < nav.length; i++) {
+            list.innerHTMl += `<li onclick="this,${i}">${nav[i]}</li>`
+        }
+
+        function navg(obj, i) {
+            obj.classList.add('green');
+            obj.innerHTML = nav[i] + ' <img width="10px" src="./211621_c_right_arrow_icon.png" alt="">'
+
+        }
+    </script>
+</body>
+
+</html>

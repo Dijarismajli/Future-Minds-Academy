@@ -41,7 +41,7 @@ function loadQuestion(q) {
     for (let i = 0; i < questions[q].options.length; i++) {
         option_list.innerHTML += `
         <div class="option" onclick="optionClicked()">
-            <span>${questions[q].options[i]}</span>
+             <span>${questions[q].options[i]}</span>
         </div>
         `;
     }
