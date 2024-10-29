@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <style>
+        ul li {
+            cursor: pointer;
+        }
+
+        ul li:hover {
+            background-color: beige;
+        }
+
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">You clicked:</h1>
+    <input type="color" value="#f6f82" id="colorPicker">
+    <ul>
+        <li onclick="youClicked(this)">Home</li>
+        <li onclick="youClicked(this)">Services</li>
+        <li onclick="youClicked(this)">About</li>
+    </ul>
+
+    <script>
+        const title = document.querySelector('#title');
+        const colorPicker = document.querySelector('#colorPicker')
+
+        function youClicked(obj) {
+            title.innerHTML = `You clicked: <span style="color: ${colorPicker.value};"> ${obj.textContent} </span>`;
+
+        }
+    </script>
+</body>
+
+</html>
