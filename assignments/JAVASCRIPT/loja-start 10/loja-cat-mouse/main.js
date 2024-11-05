@@ -76,4 +76,4 @@ function timer() {
 }
 
 setInterval(render, 1); // thirre render cdo 1/1000 second
-setInterval(timer, 1000);
+setInterval(timer, 1000); t
