@@ -32,4 +32,13 @@ let games = [
 let isAddingNewGame = false; // This flag will tell us whether we are adding or editing a game
 let currentGameIndex = null; // Holds the index of the game being edited
 
+
 //Add your code below
+
+if (credentials.username == "admin" && credentials.password == "1234") {
+
+
+}
+
+
+//explain to me the CRUD create read update and delete
