@@ -3,11 +3,7 @@
     margin: 0px;
     box-sizing: border-box;
     font-family: "DM Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: weight;
-    font-style: normal;
 }
-
 
 h1 {
     font-size: 50px;
@@ -22,18 +18,18 @@ h2 {
 }
 
 h4 {
-    font-size: 32px;
+    font-size: 22px;
     color: black;
 }
 
 h6 {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 700;
 }
 
 p {
     margin: 15px 0 20px 0;
-    font-size: 32px;
+    font-size: 13px;
     color: black;
 }
 
@@ -56,8 +52,47 @@ body {
     box-shadow: inset;
 }
 
-#navBar {
+#navbar {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+#navbar li {
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 600;
+    color: slategray;
+    transition: 0.5s ease;
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: springgreen;
+}
+
+#navbar li a.active::after,
+#navbar li a:hover::after {
+    content: "";
+    width: 30%;
+    height: 2px;
+    background-color: springgreen;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+
+#here {
+    background-image: url("../images/images.png");
+    background-repeat: no-repeat;
+    background-position: top 25% right;
+    height: 90vh;
+    width: 100%;
+    padding: 0 80px;
 }
