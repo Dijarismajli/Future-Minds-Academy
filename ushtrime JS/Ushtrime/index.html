@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ushtrimore</title>
+    <style>
+        .navigation {
+            display: flex;
+            justify-content: center;
+        }
+
+        .navigation ul {
+            display: flex;
+            list-style-type: none;
+            gap: 15px;
+        }
+
+        .navigation li {
+            cursor: pointer;
+            padding: 10px 30px;
+            background-color: antiquewhite;
+        }
+
+        .navigation li:hover {
+            background-color: brown;
+            color: white;
+        }
+
+        #title {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navigation">
+        <ul id="allnav">
+        </ul>
+    </div>
+    <h1 id="title">Home</h1>
+    <p id="description"></p>
+    <script>
+        let navlabels = [
+            {
+                title: "Home",
+                desc: "Something about home."
+            },
+            {
+                title: "Services",
+                desc: "These are my services."
+            },
+            {
+                title: "About",
+                desc: "This is the story about me..."
+            },
+            {
+                title: "Contact",
+                desc: "Feel free to contact me"
+            }
+        ];
+        const allnav = document.querySelector("#allnav");
+        const title = document.querySelector("#title");
+        const description = document.querySelector("#description")
+
+        for (let i = 0; i < navlabels.length; i++) {
+            allnav.innerHTML += `
+            <li onclick="loadPage(${i})">${navlabels[i].title}</li>   
+            <p id= "description"> ${navlabels[i].desc}</p > `
+        }
+
+        function loadPage(p) {
+            title.textContent = navlabels[p].title;
+
+
+        }
+
+    </script>
+</body>

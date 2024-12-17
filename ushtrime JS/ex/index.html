@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="title">Welcome</h1>
+    <select name="" id="allcountry">
+        <option value="Hasan">Select Coutry</option>
+        <option value="Kosova">Kosova</option>
+        <option value="Shqipëria">Shqipëria</option>
+    </select>
+    <br><br>
+    <input id="emri" type="text" placeholder="Emri dhe Mbiemri">
+    <button id="submitBTN">Submit</button>
+    <br><br>
+    <button id="al">Shqiperia</button>
+    <button id="ks">Kosova</button>
+
+
+    <script>
+        const myTitle = document.querySelector("#title");
+        const selectCountry = document.querySelector("#allcountry");
+        const alBTN = document.querySelector("#al");
+        const ksBTN = document.querySelector("#ks");
+
+        const emri = document.querySelector("#emri");
+        const submitBTN = document.querySelector("#submitBTN");
+
+        selectCountry.addEventListener('change', function (obj) {
+            myTitle.textContent = obj.target.value;
+        });
+
+        alBTN.addEventListener('click', function () {
+            myTitle.innerHTML = "<span>Shqiperia</span>";
+        })
+
+        ksBTN.addEventListener('click', function () {
+            myTitle.textContent = "Kosova";
+        });
+
+        submitBTN.addEventListener('click', function () {
+            myTitle.textContent = emri.value;
+        });
+
+
+    </script>
+    <script src="main.js\"></script>
+</body>
+
+</html>

@@ -32,7 +32,7 @@ continue_btn.addEventListener('click', function () {
 
     loadQuestion(currentQuestion);
 });
-
+//
 function loadQuestion(q) {
     reset()
     que_text.textContent = questions[q].question;//e qet pytjen
@@ -82,7 +82,7 @@ function timerLineFill() {
         timerLineA += 5.3;
     }
 }
-// e nal sekondat vijen edhe i nal nqat sekond qe e klikon opcionin 
+// i nal sekondat vijen edhe i nal nqat sekond qe e klikon opcionin 
 function reset() {
     timer_sec.textContent = "15";
     timeTick = 9;
@@ -108,4 +108,4 @@ function disableQ(o) {
         <span>${questions[currentQuestion - 1].options[i]}</span>
     </div>`;
     }
-}
+} 

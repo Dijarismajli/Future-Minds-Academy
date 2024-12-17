@@ -1,21 +1,18 @@
 let allData = [
     {
         year: "2024",
-        name: 'BAD boys 4',
-        thumbnail: 'fposter,small,wall_texture,product,750x1000.jpg',
-        reviews: "2000",
+        name: "Inside Out 2",
+        thumb: "inside-out-2.jpeg",
+        reviews: "104"
     },
     {
-        year: "2024",
-        name: 'One Piece',
-        thumbnail: 'one_piece_product.jpg',
-        reviews: "2333"
+        year: "2023",
+        name: "The Taste of Things",
+        thumb: "the-taste-of-things.jpeg",
+        reviews: "303"
     }
-]
+];
 //
-
-
-
 const allMovies = document.querySelector("#allMovies");
 const addBTN = document.querySelector("#addBTN");
 const movieModal = document.querySelector("#movieModal");

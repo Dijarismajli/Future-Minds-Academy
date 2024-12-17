@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arrays</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            font-family: sans-serif;
+        }
+
+        aside {
+            padding: 40px 20px;
+            width: 300px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: rgb(86, 86, 86);
+            box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+        }
+
+        aside>div {
+            cursor: pointer;
+            border-radius: 10px;
+            padding: 20px;
+            background-color: rgb(255, 255, 255);
+        }
+
+        aside span {
+            font-size: 9pt;
+            color: rgb(183, 183, 183);
+        }
+
+        aside h3 {
+            color: rgb(56, 56, 56);
+        }
+
+        aside p {
+            color: rgb(111, 111, 111);
+        }
+
+        aside>div:hover {
+            background-color: rgb(222, 222, 222);
+        }
+
+        iframe {
+            width: 560px;
+            height: 315px;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <aside id="myMovies"></aside>
+    <main id="TrailerMovie">
+        <h4>2024</h4>
+        <h2>Gladiator II</h2>
+        <p>Something about the Gladiator</p>
+        <iframe src="https://www.youtube.com/embed/YZf8zpchbXE?si=KkkR71SumJKmp7jo" title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

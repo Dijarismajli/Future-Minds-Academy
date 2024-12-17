@@ -18,6 +18,7 @@
         .movieModal {
             display: none;
             width: 400px;
+            background-color: white;
             border-radius: 10px;
             box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
             position: absolute;
@@ -77,8 +78,8 @@
 <body>
 
     <div class="wrapper">
-        <div id="addMov">
-            <button>Add Movie</button>
+        <div>
+            <button id="addBTN">Add Movie</button>
         </div>
         <table border="1" cellpadding="5">
             <thead>
@@ -98,29 +99,29 @@
     </div>
 
 
-    <div class="movieModal">
+    <div class="movieModal" id="movieModal">
         <header>
-            <h2 id="modalTittle">Add Movie</h2>
+            <h2 id="modalTitle">Add Movie</h2>
         </header>
         <main>
-            <div><input type="number" id="YearM" placeholder="Year"></div>
-            <div><input type="text" id="titleM" placeholder="Movie Title"></div>
+            <div><input type="number" id="year" placeholder="Year"></div>
+            <div><input type="text" id="movieTitle" placeholder="Movie Title"></div>
             <div>
                 <select name="" id="thumb">
-                    <option value="">
+                    <option value="inside-out-2.jpeg">
                         Thumb 1
                     </option>
-                    <option value="">
+                    <option value="the-taste-of-things.jpeg">
                         Thumb 2
                     </option>
                 </select>
             </div>
-            <div><input type="number" id="rewiew" placeholder="Reviews"></div>
+            <div><input type="number" id="reviews" placeholder="Reviews"></div>
 
         </main>
         <footer>
-            <button id="cancelBtn">Cancel</button>
-            <button id="subMovie">Submit</button>
+            <button id="cancelBTN">Cancel</button>
+            <button id="submitBTN">Submit</button>
         </footer>
     </div>
 

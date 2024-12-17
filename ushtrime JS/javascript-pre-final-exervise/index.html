@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FMA Movies</title>
+    <link rel="stylesheet" href="assets/css/fma-general.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <header class="row">
+            <div class="col white">FMA Movies</div>
+            <div class="col text-right">
+                <a class="white" href="#">Login</a>
+            </div>
+        </header>
+        <div class="row">
+            <nav class="col-1 white">
+                <div class="allGernes">
+                    <div class="row">
+                        <div class="col-3">
+                            <select class="p-0 movieGernes" onchange="populateMovies(this.value)">
+
+                            </select>
+                        </div>
+                        <div class="col-1 play-pause">
+                            <p class="play"><a href="#"><img src="assets/img/play.png" alt="Play"></a></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="gerneFeed">
+                    <ul class="movielist">
+
+                    </ul>
+                </div><!-- end moviesFeed -->
+            </nav>
+            <main class="col-4">
+                <div class="row">
+                    <div class="col">
+                        <div class="movied_details_page">
+                            <h1>Plane (2023)</h1>
+                            <h4>Date: 02-24-2023 | Length: 108min</h4>
+                            <div class="container">
+                                <iframe class="responsive-iframe"
+                                    src="https://www.youtube.com/embed/M25zXBIUVr0?si=2_Np20M6IFPMasOu"
+                                    title="YouTube video player" frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+
+                            <h4>Gerard Butler, Mike Colter, Tony Goldwyn, Yoson An</h4>
+                            <p>On an initially routine flight, the protagonist ends up saving passengers through an
+                                emergency landing following a lightning strike.</p>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script src="assets/js/movies.js"></script>
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
