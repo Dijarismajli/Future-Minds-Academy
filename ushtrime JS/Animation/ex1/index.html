@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ease out</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: bisque;
+        }
+
+        .box {
+            background-color: blueviolet;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 220px;
+            left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box"></div>
+    </div>
+
+    <script>
+        const box = document.querySelector('.box');
+        let x = 1;
+        let speed = 450;
+
+        let anime = setInterval(render, 10);
+
+        function render() {
+            if (x <= 450) {
+                x += speed / (x += 10);
+                box.style.left = x + 'px';
+            }
+        }
+    </script>
+</body>
+
+</html>

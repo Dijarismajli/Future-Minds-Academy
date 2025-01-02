@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ease out</title>
+    <style>
+        .wrapper {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            background-color: bisque;
+        }
+
+        .box {
+            background-color: blueviolet;
+            position: absolute;
+            cursor: pointer;
+            padding: 15px 20px;
+            color: white;
+            font-weight: bold;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box">3</div>
+    </div>
+
+    <script>
+        const box = document.querySelector('.box');
+        let x = Math.floor(Math.random() * 450);
+        let y = Math.floor(Math.random() * 450);
+        let timer = 3;
+
+        box.style.left = x + "px";
+        box.style.top = y + "px";
+
+        box.addEventListener('click', movePosition);
+
+        function movePosition() {
+            x = Math.floor(Math.random() * 450);
+            y = Math.floor(Math.random() * 450);
+            box.style.left = x + "px";
+            box.style.top = y + "px";
+            timer = 4;
+        }
+
+        let movePos = setInterval(movePosition, 4000);
+        let counter = setInterval(() => {
+            if (timer != 0) {
+                timer--;
+                box.textContent = timer;
+            }
+        }, 1000);
+
+    </script>
+</body>
+
+</html>

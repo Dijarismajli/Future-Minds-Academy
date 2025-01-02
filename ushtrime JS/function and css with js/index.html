@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <style>
+        .wrapper {
+            display: flex;
+            gap: 40px;
+            width: 50%;
+        }
+
+        .left-side {
+            background-color: bisque;
+        }
+
+        .right-side {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="left-side">
+
+        </div>
+        <div class="right-side">
+
+        </div>
+    </div>
+
+    <script>
+        const wrapper = document.querySelector('.wrapper');
+        const leftSide = document.querySelector('.left-side');
+        const rightSide = document.querySelector('.right-side');
+
+        createH1(leftSide, 4, 'blue');
+        createH1(rightSide, 7, 'gray');
+
+        function createH1(obj, num, color) {
+
+            for (let i = 1; i <= num; i++) {
+                obj.innerHTML += `<h1 style="color: ${color}">Hurray ${i}</h1>`;
+            }
+
+        }
+    </script>
+</body>
+
+</html>

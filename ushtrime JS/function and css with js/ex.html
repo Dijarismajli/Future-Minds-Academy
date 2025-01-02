@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+        }
+
+        aside {
+            background-color: rgb(172, 156, 131);
+            padding: 20px;
+            height: 100vh;
+        }
+
+        aside>div {
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+        aside>div:hover {
+            cursor: pointer;
+            background-color: rgb(88, 38, 38);
+            color: white;
+        }
+
+        main {
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <aside id="run">
+
+    </aside>
+    <main id="current">
+
+    </main>
+
+    <script>
+        const run = document.querySelector("#run")
+        const current = document.querySelector("#current")
+
+        function createRun(n, Run) {
+            for (let i = 1; i <= n; i++) {
+                if (i == Run.row) {
+                    run.innerHTML += `<div onclick="show(${i})"" style="color:${Run.color}">Run ${i}</div>`
+                }
+                else {
+                    run.innerHTML += `<div onclick="show(${i})">Run ${i}</div>`;
+                }
+            }
+
+        }
+        createRun(34, { row: 2, color: "green" });
+
+        function show(i) {
+            current.textContent = "Run: " + i;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
+
+<!-- te onclick me bo me this se n projekt final ka mu kon me bo me this -->

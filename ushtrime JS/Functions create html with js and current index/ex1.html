@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create HTML</title>
+    <style>
+        body {
+            display: flex;
+            gap: 50px;
+        }
+
+        h1 {
+            font-size: 100pt;
+        }
+
+        .wrapper {
+            width: 500px;
+            padding: 20px;
+            background-color: beige;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .row {
+            padding: 10px;
+            border: 5px solid rgb(217, 217, 217);
+            border-radius: 10px;
+            background-color: rgb(255, 255, 255);
+            transition: 0.5s;
+        }
+
+        .row:hover {
+            cursor: pointer;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+        }
+
+        .red {
+            background-color: red;
+            color: white;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 5px;
+            border-radius: 5px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <label for="rows">Rows: </label>
+        <input type="number" id="rows">
+        <label for="highlight">Highlight: </label>
+        <input type="number" id="highlight">
+        <button id="apply">Apply</button>
+        <div class="wrapper"></div>
+    </div>
+    <div class="wind">
+        <h1 id="thenum">1</h1>
+    </div>
+
+
+    <script>
+        const wrapper = document.querySelector(".wrapper");
+        const rows = document.querySelector("#rows");
+        const highlight = document.querySelector("#highlight");
+        const apply = document.querySelector("#apply");
+        const thenum = document.querySelector("#thenum");
+
+        let weeks = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+
+        apply.addEventListener('click', function () {
+            generateRows(rows.value, highlight.value);
+        });
+
+        function generateRows(r, h) {
+            wrapper.innerHTML = '';
+            for (let i = 1; i <= r; i++) {
+                if (i == h) {
+                    wrapper.innerHTML += `<div onclick="showWind(${i})" class="row red">Line ${i}</div>`;
+                }
+                else {
+                    wrapper.innerHTML += `<div onclick="showWind(${i})" class="row">Line ${i}</div>`;
+                }
+            }
+        }
+
+        function showWind(i) {
+            thenum.textContent = weeks[i - 1];
+        }
+
+
+    </script>
+</body>
+
+</html>

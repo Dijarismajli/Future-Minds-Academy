@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <style>
+        .wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            background-color: bisque;
+        }
+
+        .box1 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+        }
+
+        .box2 {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background-color: rgb(207, 0, 234);
+            bottom: 0;
+        }
+
+        button {
+            margin-top: 20px;
+            cursor: pointer;
+            padding: 10px;
+            font-size: 12pt;
+            border-radius: 5;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <button id="startBTN">Start Animation</button>
+    <button id="resetBTN">Reset</button>
+
+    <script>
+        const box1 = document.querySelector('.box1');
+        const box2 = document.querySelector('.box2');
+        const startBTN = document.querySelector('#startBTN');
+        const resetBTN = document.querySelector('#resetBTN');
+
+        let x = 0;
+        let y = 0;
+        let anime;
+
+        startBTN.addEventListener('click', startAnimation);
+        resetBTN.addEventListener('click', reset);
+
+        function startAnimation() {
+            anime = setInterval(moveBox, 10);
+            console.log("start anime");
+
+            function moveBox() {
+                if (x <= 370) {
+                    x++;
+                    box1.style.left = x + 'px';
+                    x++;
+                    box2.style.left = x + 'px';
+                }
+                else {
+                    if (y <= 169) {
+                        y++;
+                        box1.style.top = y + 'px';
+                        box1.style.left = '370px';
+                        box2.style.left = '370px';
+                        box2.style.bottom = y + 'px';
+                    }
+                }
+            }
+        }
+
+        function reset() {
+            clearInterval(anime);
+            x = 0;
+            y = 0;
+            box1.style.top = '0px';
+            box1.style.left = '0px';
+            box2.style.left = '0px';
+            box2.style.bottom = '0px';
+        }
+    </script>
+</body>
+
+</html>

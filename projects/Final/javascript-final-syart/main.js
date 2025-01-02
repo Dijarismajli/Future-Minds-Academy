@@ -40,18 +40,20 @@ function gameL() {
 }
 gameL();
 
-function loadGameDetails() {
-    game_info.innerHTML = '';
-    for (let i = 0; i < games.length; i++) {
-        game_info.innerHTML = `
+game_info.innerHTML = '';
+function loadGameDetails(i) {
+
+    game_info.innerHTML = `
     <div class="selected-game">
         <img src="${games[i].thumbnail}" alt="Thumbnail">
         <h2>${games[i].name}</h2>
-        <p>${games[i].description}</p>
-        <p><strong>Plays:</strong> ${games[i].plays}</p>
+        <p> ${games[i].plays}</p>
         <button onclick="closeDetails()">Close</button>
     </div>`;
-    }
-    game_info.style.display = 'block'; // Show the details section
+
+    game_info.style.display = 'block';
 }
 
+function closeDetails() {
+    game_info.style.display = 'none';
+}
