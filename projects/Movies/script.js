@@ -19,7 +19,6 @@ const movies = [
     },
 ];
 
-
 const movieList = document.querySelector("#movie_list");
 const movieInfo = document.querySelector("#movie_info");
 
