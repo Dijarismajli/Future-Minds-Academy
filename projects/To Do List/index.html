@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping List</title>
+</head>
+
+<body>
+
+    <input type="text" id="itemName" placeholder="Item name">
+    <input type="number" id="itemQuantity" placeholder="Quantity">
+    <button onclick="addItem()">Add Item</button>
+    <ul class="shoppingList"></ul>
+
+    <script>
+        let shoppingList = [];
+
+        const listContainer = document.querySelector('.shoppingList');
+        const itemName = document.querySelector('#itemName');
+        const itemQuantity = document.querySelector('#itemQuantity');
+
+        function addItem() {
+
+            shoppingList.push({ name: itemName.value, quantity: itemQuantity.value });
+
+            render();
+        }
+
+
+        function render() {
+            listContainer.innerHTML = '';
+
+            for (let i = 0; i < shoppingList.length; i++) {
+                listContainer.innerHTML += `
+        <li>${shoppingList[i].name} - Quantity: ${shoppingList[i].quantity} 
+            <button onclick="removeItem(${i})">Delete</button>
+            <button onclick="editItem(${i})">Edit</button>
+        </li>
+    `;
+            }
+        }
+
+        function removeItem(i) {
+            shoppingList.splice(i, 1);
+
+            render();
+        }
+
+        function editItem(i) {
+
+            let newName = prompt('Edit item name:', shoppingList[i].name);
+            let newQuantity = prompt('Edit quantity:', shoppingList[i].quantity);
+
+            if (newName === '' || newQuantity === '') {
+                alert('Both name and quantity must be provided.');
+            }
+
+
+            else if (newName !== null && newQuantity !== null) {
+
+                shoppingList[i] = { name: newName, quantity: newQuantity };
+
+                render();
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Exercise</title>
+</head>
+
+<body>
+
+    <input type="text" id="theItem"> <button onclick="addItem()">Add Item</button>
+    <ul class="tasklist"> </ul>
+    <h1 id="taskDisplay"></h1>
+    <script>
+        let allTasks = [];    //array
+
+
+        const tasklist = document.querySelector('.tasklist');
+        const theItem = document.querySelector('#theItem');
+        const taskDisplay = document.querySelector('#taskDisplay');// t kapta prej html
+
+        function addItem() {
+            allTasks.push(theItem.value);//e bojna me .value per me morr vleren qe e shkrujna 
+            render();//funksioni per mos me perserit foor loop
+        }
+
+
+        //funksioni i for loop  qe me pas ma let me perdor
+        function render() {
+            tasklist.innerHTML = '';
+            for (let i = 0; i < allTasks.length; i++) {
+                tasklist.innerHTML += `
+                    <li>${allTasks[i]} 
+                        <button onclick="removeItem(${i})">Delete</button> 
+                        <button onclick="editDetails(${i})">Edit</button> 
+                        <button onclick="displayTask(${i})">Display with Line</button>
+                    </li>
+                `;
+            }
+        }
+
+        function removeItem(i) {
+            allTasks.splice(i, 1);
+            render();
+        }
+
+        function editDetails(i) {
+            let newTask = prompt('Edit your task:', allTasks[i]);
+            if (newTask === '') {
+                alert('Task cannot be empty.');
+            } else if (newTask !== null) {
+                allTasks[i] = newTask;
+                render();
+            }
+        }
+
+        function displayTask(i) {
+            taskDisplay.innerHTML = `<s>${allTasks[i]}</s>`;
+        }
+    </script>
+</body>
+
+</html>
