@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Dropdown</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Top Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            background: #fff;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            background: white;
+
+        }
+
+        .profile-btn img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-name {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .profile-email {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .dropdown-arrow {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            overflow: hidden;
+            display: none;
+            width: 220px;
+        }
+
+        .dropdown-menu a {
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+            color: #333;
+            transition: 0.3s;
+        }
+
+        .dropdown-menu a:hover {
+            background: #f0f0f0;
+        }
+
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="profile-container">
+            <div class="profile-btn" onclick="toggleMenu()">
+                <img src="./../Final/javascript-final-syart/images/adventure-quest.png" alt="Profile Picture">
+                <div class="profile-info">
+                    <span class="profile-name">Dijar Ismajli</span>
+                    <span class="profile-email">dijarismajli51@gmail.com</span>
+                </div>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <a href="#">My Account</a>
+                <a href="#">My Archived Portfolio</a>
+                <a href="#">Contact Support</a>
+                <a href="#">Report Misconduct</a>
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            document.getElementById("dropdownMenu").classList.toggle("show");
+        }
+
+        // Close menu when clicking outside
+        window.onclick = function (event) {
+            if (!event.target.closest('.profile-container')) {
+                document.getElementById("dropdownMenu").classList.remove("show");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
