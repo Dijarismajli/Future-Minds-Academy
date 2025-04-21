@@ -1,0 +1,14 @@
+.ngjyrat {
+    list-style-type: none;
+}
+
+.ngjyrat li {
+    padding: 10px;
+    background-color: yellowgreen;
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+.ngjyrat li:hover {
+    background-color: antiquewhite;
+}

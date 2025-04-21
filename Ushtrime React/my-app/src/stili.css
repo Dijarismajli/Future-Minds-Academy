@@ -1,0 +1,14 @@
+.style {
+    list-style-type: none;
+}
+
+.style li {
+    padding: 10px;
+    background-color: rgb(50, 205, 197);
+    width: fit-content;
+    margin-bottom: 5px;
+}
+
+.style li:hover {
+    background-color: antiquewhite;
+}
