@@ -1,0 +1,27 @@
+.datinjo {
+    list-style-type: none;
+}
+
+.datinjo h2 {
+    padding: 10px;
+    background-color: rgb(0, 0, 0);
+    width: fit-content;
+    margin: 50px;
+    color: white;
+}
+
+.datinjo h2:hover {
+    background-color: rgb(255, 161, 161);
+}
+
+.datinjo p {
+    padding: 10px;
+    background-color: rgb(2, 8, 2);
+    width: fit-content;
+    margin: 50px;
+    color: white;
+}
+
+.datinjo p:hover {
+    background-color: bisque;
+}
