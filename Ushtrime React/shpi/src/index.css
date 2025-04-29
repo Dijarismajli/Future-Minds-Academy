@@ -1,0 +1,26 @@
+.Diva {
+  padding: 25px;
+  margin: 22px;
+  text-align: center;
+}
+
+.Diva img {
+  box-shadow: 3px 3px 3px 3px;
+}
+
+
+.Diva h1 {
+
+  border: 1px solid black;
+  background: bisque;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px;
+}
+
+.Diva p {
+
+  border: 1px solid black;
+  background: bisque;
+  border-radius: 20px;
+  box-shadow: 3px 3px 3px 3px;
+}
