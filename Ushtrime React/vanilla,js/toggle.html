@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="Clicked">Click</button>
+    <p id="text">Thi is a Toggle
+    </p>
+
+
+    <script>
+        const Clicked = document.querySelector("#Clicked")
+
+        const text = document.querySelector("#text")
+
+        Clicked.addEventListener('click', function () {
+            if (!status) {
+                text.style.visibilty = 'hiden'
+            }
+        })
+    </script>
+</body>
+
+</html>
