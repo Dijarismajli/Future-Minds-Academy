@@ -1,0 +1,24 @@
+.Human {
+  background-color: bisque;
+  color: black;
+  border: 1px solid black;
+  border-radius: 30px;
+  text-align: center;
+
+}
+
+.Human:hover {
+  background-color: darksalmon;
+  color: aliceblue;
+}
+
+.Human p {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
