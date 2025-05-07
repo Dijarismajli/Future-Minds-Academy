@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Contact Us - Sassio Project</title>
+</head>
+
+<body>
+    <div class="container-fixed">
+        <header class="header row" id="top">
+            <div class="col logo-col">
+                <img src="assets/images/logo.png" alt="Sassio Logo">
+            </div>
+            <div class="col navigation-col">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </header>
+        <div class="wrapper-md">
+            <h1>Contact Us</h1>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name</label><br>
+                <input type="text" id="name" name="name"><br><br>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email"><br><br>
+                <label for="message">Message</label><br>
+                <textarea id="message" name="message"></textarea><br><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <footer>
+            <p>© 2021 Sassio. All Rights Reserved.</p>
+        </footer>
+    </div>
+</body>
+
+</html>

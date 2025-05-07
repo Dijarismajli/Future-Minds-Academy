@@ -1,0 +1,163 @@
+
+/* Responsive FOR TABLET */
+@media only screen and (max-width:  1080px) {
+    .wrapper-50, .wrapper-60, .wrapper-70, .wrapper-80{
+        width: 90%;
+        margin:  0px auto;
+        transition: all 0.3s ease-in;
+    }
+
+    .remove-tablet{
+        display: none;
+    }
+
+    .block-tablet{
+        display: block !important;
+    }
+
+    .row-tablet{
+        flex-direction: column;
+    }
+
+    .grid-cl-1{
+        grid-template-columns: 1fr;
+    }
+
+    .block-tablet{
+        display: block;
+    }
+
+    .just-tablet-start {
+        justify-content: start;
+    }
+    
+    .just-tablet-between{
+        justify-content: space-between ;
+    }
+    
+    .just-tablet-center{
+        justify-content: center !important;
+    }
+    
+    .just-tablet-end{
+        justify-content: end ;
+    }
+
+    .align-tablet-start {
+        align-items: flex-start ;
+    }
+    
+    .align-tablet-center{
+        align-items: center ;
+    }
+    
+    .align-tablet-end{
+        align-items: end;
+    }
+    
+
+    .img-tablet-100{
+        width: 100%;
+    }
+    
+    .img-tablet-90{
+        width: 90%;
+    }
+    
+    .img-tablet-80{
+        width: 80%;
+    }
+    
+    .img-tablet-70{
+        width: 70%;
+    }
+    
+    .img-tablet-60{
+        width: 60%;
+    }
+    
+    .img-tablet-50{
+        width: 50%;
+    }
+    
+    .txt-tablet-al-center{
+        text-align: center;
+    }
+}
+
+/* Responsive FOR PHONE*/
+@media only screen and (max-width: 600px) {
+    .wrapper-50, .wrapper-60, .wrapper-70, .wrapper-80, .wrapper-90{
+        width: 95%;
+        margin:  0px 2.5%;
+ 
+    }
+
+    .remove-phone{
+        display: none;
+    }
+
+    .block-phone{
+        display: block;
+    }
+
+    .row-phone{
+        flex-direction: column;
+    }
+
+    .just-phone-start {
+        justify-content: start;
+    }
+    
+    .just-phone-between{
+        justify-content: space-between ;
+    }
+    
+    .just-phone-center{
+        justify-content: center ;
+    }
+    
+    .just-phone-end{
+        justify-content: end ;
+    }
+    
+    .align-phone-start {
+        align-items: flex-start ;
+    }
+    
+    .align-phone-center{
+        align-items: center ;
+    }
+    
+    .align-phone-end{
+        align-items: end;
+    }
+    
+    .img-phone-100{
+        width: 100%;
+    }
+    
+    .img-phone-90{
+        width: 90%;
+    }
+    
+    .img-phone-80{
+        width: 80%;
+    }
+    
+    .img-phone-70{
+        width: 70%;
+    }
+    
+    .img-phone-60{
+        width: 60%;
+    }
+    
+    .img-phone-50{
+        width: 50%;
+    }
+
+    .txt-phone-al-center{
+        text-align: center;
+    }
+}
