@@ -9,9 +9,10 @@ function App() {
   const [isVisible, setisVisible] = useState(true);
   const toggle = () => setisVisible(!isVisible);
 
+  const [inputValue, setInputValue] = useState('');
 
-  const [inputValue, setinputValue] = useState('')
-  const handleChange = () => setinputValue(e.target.value);
+  const handleChange = (e) => setInputValue(e.target.value);
+
 
   return (
     <>
@@ -28,12 +29,10 @@ function App() {
       <button onClick={toggle}>Click</button>
       {isVisible && <p>This is a Toggled text.</p>}
 
-
-      <h1>Input Field</h1>
-      <hr />
-      <input onchange="ChangeTx" type="text" id="inp" />
-      <p id="text">You typed:</p>
-
+      <div>
+        <input type="text" value={inputValue} onChange={handleChange} />
+        <p>You typed: {inputValue}</p>
+      </div>
     </>
   );
 }
