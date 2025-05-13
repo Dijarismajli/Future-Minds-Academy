@@ -3,14 +3,14 @@ import React, { useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
-  const increment = () => count < 10 && setCount(count + 1);
-  const decrement = () => count > 0 && setCount(count - 1);
+  const decrement = () => count > 0 && setCount(count - 1)
+  const increment = () => count < 7 && setCount(count + 1)
+
 
   const [isVisible, setisVisible] = useState(true);
   const toggle = () => setisVisible(!isVisible);
 
   const [inputValue, setInputValue] = useState('');
-
   const handleChange = (e) => setInputValue(e.target.value);
 
 
@@ -23,7 +23,6 @@ function App() {
         <h2 id="results">{count}</h2>
         <button onClick={increment}>+</button>
       </div>
-
       <h1>Toggle</h1>
       <hr />
       <button onClick={toggle}>Click</button>
