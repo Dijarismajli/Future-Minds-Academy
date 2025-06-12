@@ -23,6 +23,7 @@ function App() {
         <h2 id="results">{count}</h2>
         <button onClick={increment}>+</button>
       </div>
+
       <h1>Toggle</h1>
       <hr />
       <button onClick={toggle}>Click</button>

@@ -1,4 +1,3 @@
-
 function Student(props) {
 
     return (
