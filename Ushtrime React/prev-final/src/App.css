@@ -1,0 +1,56 @@
+.app {
+  max-width: 600px;
+  margin: 40px auto;
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.input-group input,
+.input-group button {
+  padding: 10px;
+  font-size: 1rem;
+}
+
+.buttons {
+  margin-bottom: 20px;
+}
+
+.buttons button {
+  margin: 0 5px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 10px;
+  background: #f7f7f7;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-list li span {
+  flex-grow: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+.task-list li.completed span {
+  text-decoration: line-through;
+  color: gray;
+}

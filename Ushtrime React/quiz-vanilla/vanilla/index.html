@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+</head>
+
+<body>
+
+    <h2>Simple quiz</h2>
+
+    <div id="quiz">
+    </div>
+
+
+    <p id="result"></p>
+    <button id="submit">Submit Quiz</button>
+
+    <script>
+
+
+        const questions = [
+            {
+                question: "What is the capital of France?",
+                options: ["London", "Berlin", "Paris", "Madrid"],
+                answer: 2  // index of "Paris"
+            },
+            {
+                question: "What color is the sky?",
+                options: ["Green", "Blue", "Red", "Yellow"],
+                answer: 1  // index of "Blue"
+            },
+            {
+                question: "How many legs does a spider have?",
+                options: ["4", "6", "8", "10"],
+                answer: 2  // index of "8"
+            }
+        ];
+
+
+        const quizDiv = document.querySelector("#quiz")
+        const submit = document.querySelector("#submit")
+        const result = document.querySelector("#result")
+
+        questions.forEach((q, i) => {
+
+            const qDiv = document.createElement('div')
+            qDiv.innerHTML = `<p>${q.question}</p>`
+
+            q.options.forEach((opt, j) => {
+                const optionsHTML = `
+                 <label>
+                <input type="radio" name="q${i}" value="${j}"> ${opt}
+            </label><br>
+              `
+                qDiv.innerHTML += optionsHTML
+
+            })
+            quizDiv.appendChild(qDiv)
+        })
+
+
+        submit.addEventListener('click', () => {
+            let score = 0;
+
+            questions.forEach((q, i) => {
+                const selected = document.querySelector(`input[name='q${i}']:checked`)
+
+                if (selected && parseInt(selected.value) === q.answer) {
+                    score++
+
+                }
+            })
+            result.textContent = ''
+
+            result.textContent = `You scored ${score} out of ${questions.length}`
+        })
+    </script>
+</body>
+
+</html>

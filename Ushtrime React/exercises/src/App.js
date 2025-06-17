@@ -3,7 +3,7 @@ import './App.css';
 import React, { useEffect, useState } from 'react';
 
 
-function App(props) {
+function App() {
 
 
   const [count, setCount] = useState(0);
@@ -45,7 +45,6 @@ function App(props) {
         <option value='red'>red</option>
         <option value='green'>green</option>
         <option value='blue'>blue</option>
-
         <p>{hover}</p>
 
       </select>
