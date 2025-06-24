@@ -1,0 +1,98 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Vanilla JS To-Do List</title>
+    <style>
+        body {
+            font-family: Arial;
+            padding: 20px;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 200px;
+        }
+
+        button {
+            margin-left: 5px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>To-Do List</h2>
+
+    <input type="text" id="taskInput" placeholder="Enter task">
+    <button onclick="addTask()">Add</button>
+
+    <ul id="taskList"></ul>
+
+    <script>
+        const taskInput = document.getElementById('taskInput');
+        const taskList = document.getElementById('taskList');
+        let tasks = [];
+        let editingId = null;
+
+        function addTask() {
+            const value = taskInput.value.trim();
+            if (value === '') return;
+
+            if (editingId !== null) {
+                // Editing mode
+                const task = tasks.find(t => t.id === editingId);
+                task.name = value;
+                editingId = null;
+            } else {
+                // Adding mode
+                const newTask = {
+                    id: Date.now(),
+                    name: value
+                };
+                tasks.push(newTask);
+            }
+
+            taskInput.value = '';
+            renderTasks();
+        }
+
+        function editTask(id) {
+            const task = tasks.find(t => t.id === id);
+            if (!task) return;
+
+            taskInput.value = task.name;
+            taskInput.focus();
+            taskInput.select(); // ✅ Select the text for easy editing
+            editingId = id;
+        }
+
+        function deleteTask(id) {
+            tasks = tasks.filter(task => task.id !== id);
+            renderTasks();
+        }
+
+        function renderTasks() {
+            taskList.innerHTML = '';
+            tasks.forEach(task => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    ${task.name}
+                    <button onclick="editTask(${task.id})">Edit</button>
+                    <button onclick="deleteTask(${task.id})">Delete</button>
+                    `;
+                taskList.appendChild(li);
+            });
+        }
+    </script>
+
+</body>
+
+</html>

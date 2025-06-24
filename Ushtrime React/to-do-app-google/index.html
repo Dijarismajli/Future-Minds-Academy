@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Future Minds TODO</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="login" id="login-screen">
+        <h2>Login</h2>
+        <input id="email" type="email" placeholder="Email" />
+        <input id="password" type="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+    </div>
+
+    <div class="app" id="app-screen" style="display: none">
+        <h2>TODO List</h2>
+        <input id="new-task" type="text" placeholder="Add a new task" />
+        <select id="date-select">
+            <option value="today">Today</option>
+            <option value="yesterday">Yesterday</option>
+            <option value="tomorrow">Tomorrow</option>
+        </select>
+        <button onclick="addTodo()">Add</button>
+        <div class="filters">
+            <button onclick="filterTodos('all')">All</button>
+            <button onclick="filterTodos('yesterday')">Yesterday</button>
+            <button onclick="filterTodos('today')">Today</button>
+            <button onclick="filterTodos('tomorrow')">Tomorrow</button>
+        </div>
+        <ul id="todo-list"></ul>
+    </div>
+
+    <div class="modal" id="edit-modal" style="display: none;">
+        <div class="modal-content">
+            <h3>Edit Task</h3>
+            <input type="text" id="edit-text" />
+            <button onclick="saveEdit()">Save</button>
+        </div>
+    </div>
+
+    <footer>
+        &copy; Future Minds Academy 2025. All Rights Reserved!
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

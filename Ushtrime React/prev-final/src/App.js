@@ -1,143 +1,106 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [task, setTask] = useState('');
-  const [date, setDate] = useState('');
-  const [taskPriority, setTaskPriority] = useState('medium');
-  const [tasks, setTasks] = useState([]);
+  const [date, setDate] = useState('today');
   const [filter, setFilter] = useState('all');
-  const [editingIndex, setEditingIndex] = useState(null);
-  const [editedTask, setEditedTask] = useState('');
+  const [todos, setTodos] = useState([]);
+  const [editIndex, setEditIndex] = useState(null);
+  const [editText, setEditText] = useState('');
 
+  const login = () => {
+    if (email && password) setIsLoggedIn(true);
+  };
 
-  useEffect(() => {
-    const saved = localStorage.getItem('tasks');
-    if (saved) setTasks(JSON.parse(saved));
-  }, []);
-
-
-
-
-  useEffect(() => {
-    const tasksString = tasks.join(',');
-    localStorage.setItem('tasks', tasksString);
-  }, [tasks]);
-
-
-
-
-  const addTask = () => {
-    if (!task || !date) return;
-    setTasks([...tasks, { text: task, date, priority: taskPriority, completed: false }]);
+  const addTodo = () => {
+    if (!task) return;
+    setTodos([...todos, { text: task, date }]);
     setTask('');
-    setDate('');
-    setTaskPriority('medium');
   };
 
-  const deleteTask = (index) => {
-    const updated = [...tasks];
-    updated.splice(index, 1);
-    setTasks(updated);
+  const filterTodos = (val) => setFilter(val);
+
+  const getFilteredTodos = () => {
+    if (filter === 'all') return todos;
+    return todos.filter(todo => todo.date === filter);
   };
 
-  const toggleComplete = (index) => {
-    const updated = [...tasks];
-    updated[index].completed = !updated[index].completed;
-    setTasks(updated);
+  const startEdit = (index) => {
+    setEditIndex(index);
+    setEditText(todos[index].text);
   };
 
-  const startEditing = (index) => {
-    setEditingIndex(index);
-    setEditedTask(tasks[index].text);
+  const saveEdit = () => {
+    const updated = [...todos];
+    updated[editIndex].text = editText;
+    setTodos(updated);
+    setEditIndex(null);
+    setEditText('');
   };
-
-  const saveEdit = (index) => {
-    const updated = [...tasks];
-    updated[index].text = editedTask;
-    setTasks(updated);
-    setEditingIndex(null);
-    setEditedTask('');
-  };
-
-  const cancelEdit = () => {
-    setEditingIndex(null);
-    setEditedTask('');
-  };
-
-  const getFilteredTasks = () => {
-    const dateOnly = (offset = 0) => {
-      const d = new Date();
-      d.setDate(d.getDate() + offset);
-      return d.toISOString().split('T')[0];
-    };
-
-    const today = dateOnly();
-    const tomorrow = dateOnly(1);
-    const yesterday = dateOnly(-1);
-
-    if (filter === 'today') {
-      return tasks.filter(task => task.date === today);
-    } else if (filter === 'tomorrow') {
-      return tasks.filter(task => task.date === tomorrow);
-    } else if (filter === 'yesterday') {
-      return tasks.filter(task => task.date === yesterday);
-    } else {
-      return tasks;
-    }
+  const deleteTask = (id) => {
+    setTask(task.filter(t => t.id !== id));
   };
 
 
   return (
-    <div className="app">
-      <h1>📅 To-Do List with Date</h1>
-      <div className="input-group">
-        <input
-          type="text"
-          placeholder="Enter task..."
-          value={task}
-          onChange={e => setTask(e.target.value)}
-        />
-        <input
-          type="date"
-          value={date}
-          onChange={e => setDate(e.target.value)}
-        />
-        <button onClick={addTask}>Add</button>
-      </div>
+    <div className="App">
+      {!isLoggedIn ? (
+        <div className="login">
+          <h2>Login</h2>
+          <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+          <button onClick={login}>Login</button>
+        </div>
+      ) : (
+        <div className="app">
+          <h2>TODO List</h2>
+          <input type="text" placeholder="Add a new task" value={task} onChange={(e) => setTask(e.target.value)} />
+          <select value={date} onChange={(e) => setDate(e.target.value)}>
+            <option value="today">Today</option>
+            <option value="yesterday">Yesterday</option>
+            <option value="tomorrow">Tomorrow</option>
+          </select>
+          <button onClick={addTodo}>Add</button>
 
-      <div className="buttons">
-        <button onClick={() => setFilter('today')}>Today</button>
-        <button onClick={() => setFilter('tomorrow')}>Tomorrow</button>
-        <button onClick={() => setFilter('yesterday')}>Yesterday</button>
-        <button onClick={() => setFilter('all')}>All</button>
-      </div>
+          <div className="filters">
+            <button onClick={() => filterTodos('all')}>All</button>
+            <button onClick={() => filterTodos('yesterday')}>Yesterday</button>
+            <button onClick={() => filterTodos('today')}>Today</button>
+            <button onClick={() => filterTodos('tomorrow')}>Tomorrow</button>
+          </div>
 
-      <ul className="task-list">
-        {getFilteredTasks().map((t, i) => (
-          <li key={i} className={t.completed ? 'completed' : ''}>
-            {editingIndex === i ? (
-              <>
-                <input
-                  type="text"
-                  value={editedTask}
-                  onChange={(e) => setEditedTask(e.target.value)}
-                />
-                <button onClick={() => saveEdit(i)}>💾</button>
-                <button onClick={cancelEdit}>❌</button>
-              </>
-            ) : (
-              <>
-                <span onClick={() => toggleComplete(i)} title="Click to toggle complete">
-                  {t.text} — <span>{t.date}</span>
-                </span>
-                <button onClick={() => startEditing(i)}>✏️</button>
-                <button onClick={() => deleteTask(i)}>🗑️</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+
+
+          <ul>
+            {getFilteredTodos().map((todo, index) => (
+              <li key={index}>
+                {editIndex === index ? (
+                  <div className="modal">
+                    <div className="modal-content">
+                      <h3>Edit Task</h3>
+                      <input type="text" value={editText} onChange={(e) => setEditText(e.target.value)} />
+                      <button onClick={saveEdit}>Save</button>
+                    </div>
+                  </div>
+                ) : (
+
+                  <span onClick={() => startEdit(index)}>{todo.text} ({todo.date})</span>
+
+
+                )}
+              </li>
+            ))}
+          </ul>
+
+          <footer>
+            &copy; Future Minds Academy 2025. All Rights Reserved!
+          </footer>
+        </div>
+      )}
     </div>
   );
 }
