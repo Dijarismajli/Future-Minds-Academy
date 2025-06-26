@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.'
+import './App.css'
 
 function StudyTracker() {
   const [studies, setStudies] = useState([]);

@@ -20,7 +20,6 @@ function App() {
   ];
 
   const [userAnswers, setUserAnswers] = useState({});
-
   const [score, setScore] = useState(null);
 
   const handleChange = (questionIndex, optionIndex) => {

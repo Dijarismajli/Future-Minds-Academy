@@ -18,7 +18,7 @@ function App() {
 
   const addTodo = () => {
     if (!task) return;
-    setTodos([...todos, { text: task, date }]);
+    setTodos([...todos, { text: task, date, completed: false }]);
     setTask('');
   };
 
@@ -41,10 +41,18 @@ function App() {
     setEditIndex(null);
     setEditText('');
   };
-  const deleteTask = (id) => {
-    setTask(task.filter(t => t.id !== id));
+
+  const toggleComplete = (index) => {
+    const updated = [...todos];
+    updated[index].completed = !updated[index].completed;
+    setTodos(updated);
   };
 
+  const deleteTodo = (index) => {
+    const updated = [...todos];
+    updated.splice(index, 1);
+    setTodos(updated);
+  };
 
   return (
     <div className="App">
@@ -73,8 +81,6 @@ function App() {
             <button onClick={() => filterTodos('tomorrow')}>Tomorrow</button>
           </div>
 
-
-
           <ul>
             {getFilteredTodos().map((todo, index) => (
               <li key={index}>
@@ -87,10 +93,21 @@ function App() {
                     </div>
                   </div>
                 ) : (
+                  <>
+                    <span
+                      onClick={() => toggleComplete(index)}
+                      style={{
+                        textDecoration: todo.completed ? 'line-through' : 'none',
+                        cursor: 'pointer',
+                        marginRight: '10px',
 
-                  <span onClick={() => startEdit(index)}>{todo.text} ({todo.date})</span>
-
-
+                      }}
+                    >
+                      {todo.text} ({todo.date})
+                    </span>
+                    <button onClick={() => startEdit(index)}>Edit</button>
+                    <button onClick={() => deleteTodo(index)}>Delete</button>
+                  </>
                 )}
               </li>
             ))}
