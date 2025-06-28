@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Records</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f4f6f8;
+            color: #333;
+        }
+
+        header {
+            padding: 20px;
+            background: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .actions button,
+        .actions select {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 5px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            margin: 5px 0;
+        }
+
+        .actions select {
+            background: #6c757d;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        td button {
+            margin-right: 5px;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: white;
+        }
+
+        .edit-btn {
+            background: #28a745;
+        }
+
+        .delete-btn {
+            background: #dc3545;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        .modal-content button {
+            padding: 10px 16px;
+            margin: 10px 5px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header>📘 Student Record Manager</header>
+
+    <div class="container">
+        <div class="actions">
+            <button onclick="openModal()">➕ Add Student</button>
+            <select id="filter" onchange="renderStudents()">
+                <option value="all">All</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="today">Today</option>
+                <option value="tomorrow">Tomorrow</option>
+            </select>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Start Date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="studentList"></tbody>
+        </table>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Add Student</h2>
+            <input type="text" id="name" placeholder="Name" />
+            <input type="email" id="email" placeholder="Email" />
+            <select id="startDate">
+                <option value="yesterday">Yesterday</option>
+                <option value="today" selected>Today</option>
+                <option value="tomorrow">Tomorrow</option>
+            </select>
+            <div>
+                <button onclick="saveStudent()">Save</button>
+                <button onclick="closeModal()" style="background:#6c757d">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const studentList = document.getElementById("studentList");
+        const modal = document.getElementById("modal");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const dateSelect = document.getElementById("startDate");
+        const filterSelect = document.getElementById("filter");
+        const modalTitle = document.getElementById("modalTitle");
+
+        let students = [];
+        let editingIndex = null;
+
+        function openModal(index = null) {
+            modal.classList.add("active");
+            if (index !== null) {
+                editingIndex = index;
+                modalTitle.innerText = "Edit Student";
+                const student = students[index];
+                nameInput.value = student.name;
+                emailInput.value = student.email;
+                dateSelect.value = student.date;
+            } else {
+                editingIndex = null;
+                modalTitle.innerText = "Add Student";
+                nameInput.value = "";
+                emailInput.value = "";
+                dateSelect.value = "today";
+            }
+        }
+
+        function closeModal() {
+            modal.classList.remove("active");
+        }
+
+        function saveStudent() {
+            const name = nameInput.value.trim();
+            const email = emailInput.value.trim();
+            const date = dateSelect.value;
+
+            if (!name || !email) return alert("Please fill all fields");
+
+            const newStudent = { name, email, date };
+
+            if (editingIndex !== null) {
+                students[editingIndex] = newStudent;
+            } else {
+                students.push(newStudent);
+            }
+
+            closeModal();
+            renderStudents();
+        }
+
+        function deleteStudent(index) {
+            if (confirm("Are you sure?")) {
+                students.splice(index, 1);
+                renderStudents();
+            }
+        }
+
+        function renderStudents() {
+            const filter = filterSelect.value;
+            studentList.innerHTML = "";
+            students.forEach((s, i) => {
+                if (filter === "all" || s.date === filter) {
+                    const row = `
+<tr>
+<td>${s.name}</td>
+<td>${s.email}</td>
+<td>${capitalize(s.date)}</td>
+<td>
+<button class="edit-btn" onclick="openModal(${i})">Edit</button>
+<button class="delete-btn" onclick="deleteStudent(${i})">Delete</button>
+</td>
+</tr>
+`;
+                    studentList.insertAdjacentHTML("beforeend", row);
+                }
+            });
+        }
+
+        function capitalize(str) {
+            return str.charAt(0).toUpperCase() + str.slice(1);
+        }
+
+        // Initial render
+        renderStudents();
+    </script>
+</body>
+
+</html>

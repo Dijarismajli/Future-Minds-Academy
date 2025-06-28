@@ -1,145 +1,132 @@
-import { useState } from 'react';
-import './App.css'
+import React, { useState } from 'react';
+import './App.css';
 
-function StudyTracker() {
-  const [studies, setStudies] = useState([]);
-  const [subject, setSubject] = useState('');
-  const [duration, setDuration] = useState('');
-  const [studyDate, setStudyDate] = useState('');
-  const [filter, setFilter] = useState('all');
+function ProductivityHub() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [authenticated, setAuthenticated] = useState(false);
+  const [newTask, setNewTask] = useState('');
+  const [schedule, setSchedule] = useState('today');
+  const [activeFilter, setActiveFilter] = useState('all');
+  const [tasks, setTasks] = useState([]);
+  const [currentEdit, setCurrentEdit] = useState(null);
+  const [editInput, setEditInput] = useState('');
 
-  const [editingId, setEditingId] = useState(null);
-  const [editSubject, setEditSubject] = useState('');
-  const [editDuration, setEditDuration] = useState('');
-  const [editDate, setEditDate] = useState('');
-
-  const addStudy = () => {
-    if (!subject || !duration || !studyDate) return alert("Fill all fields!");
-
-    const newEntry = {
-      id: Date.now(),
-      subject,
-      duration,
-      date: studyDate
-    };
-
-    setStudies([...studies, newEntry]);
-    setSubject('');
-    setDuration('');
-    setStudyDate('');
+  const authenticateUser = () => {
+    if (email && password) setAuthenticated(true);
   };
 
-  const startEditing = (study) => {
-    setEditingId(study.id);
-    setEditSubject(study.subject);
-    setEditDuration(study.duration);
-    setEditDate(study.date);
+  const createTask = () => {
+    if (!newTask.trim()) return;
+    setTasks([...tasks, { description: newTask, schedule, isDone: false }]);
+    setNewTask('');
   };
 
-  const saveEdit = (id) => {
-    if (!editSubject || !editDuration || !editDate) return alert("Fill all fields");
+  const applyFilter = (val) => setActiveFilter(val);
 
-    setStudies(studies.map(s =>
-      s.id === id ? { ...s, subject: editSubject, duration: editDuration, date: editDate } : s
-    ));
-
-    setEditingId(null);
-    setEditSubject('');
-    setEditDuration('');
-    setEditDate('');
+  const filteredTasks = () => {
+    if (activeFilter === 'all') return tasks;
+    return tasks.filter(task => task.schedule === activeFilter);
   };
 
-  const deleteStudy = (id) => {
-    setStudies(studies.filter(s => s.id !== id));
+  const handleEdit = (index) => {
+    setCurrentEdit(index);
+    setEditInput(tasks[index].description);
   };
 
-  const isSameDay = (d1, d2) => {
-    return d1.getFullYear() === d2.getFullYear() &&
-      d1.getMonth() === d2.getMonth() &&
-      d1.getDate() === d2.getDate();
+  const saveChanges = () => {
+    const copy = [...tasks];
+    copy[currentEdit].description = editInput;
+    setTasks(copy);
+    setCurrentEdit(null);
+    setEditInput('');
   };
 
-  const filteredStudies = studies.filter(s => {
-    const today = new Date();
-    const yesterday = new Date();
-    yesterday.setDate(today.getDate() - 1);
-    const tomorrow = new Date();
-    tomorrow.setDate(today.getDate() + 1);
+  const toggleStatus = (index) => {
+    const copy = [...tasks];
+    copy[index].isDone = !copy[index].isDone;
+    setTasks(copy);
+  };
 
-    const entryDate = new Date(s.date);
-    if (filter === 'today') return isSameDay(entryDate, today);
-    if (filter === 'yesterday') return isSameDay(entryDate, yesterday);
-    if (filter === 'tomorrow') return isSameDay(entryDate, tomorrow);
-    return true;
-  });
+  const removeTask = (index) => {
+    const copy = [...tasks];
+    copy.splice(index, 1);
+    setTasks(copy);
+  };
 
   return (
-    <div>
-      <h2>📘 Study Tracker</h2>
-
-      <input
-        type="text"
-        placeholder="Subject"
-        value={subject}
-        onChange={e => setSubject(e.target.value)}
-      />
-      <input
-        type="number"
-        placeholder="Duration (minutes)"
-        value={duration}
-        onChange={e => setDuration(e.target.value)}
-      />
-      <input
-        type="date"
-        value={studyDate}
-        onChange={e => setStudyDate(e.target.value)}
-      />
-      <button onClick={addStudy}>Add Study</button>
-
-      <div className="filters" style={{ margin: '10px 0' }}>
-        <button onClick={() => setFilter('all')}>All</button>
-        <button onClick={() => setFilter('today')}>Today</button>
-        <button onClick={() => setFilter('yesterday')}>Yesterday</button>
-        <button onClick={() => setFilter('tomorrow')}>Tomorrow</button>
-      </div>
-
-      <div>
-        {filteredStudies.map(study => (
-          <div key={study.id} style={{ marginBottom: '15px', borderBottom: '1px solid #ccc' }}>
-            <span>
-              📚 <strong>{study.subject}</strong> — {study.duration} mins on {study.date}
-            </span>
-            <div>
-              <button onClick={() => startEditing(study)}>Edit</button>
-              <button onClick={() => deleteStudy(study.id)}>Delete</button>
+    <main className="main-wrapper">
+      {!authenticated ? (
+        <section className="login-panel gradient-bg">
+          <h2>Login to Your Dashboard</h2>
+          <div className="input-wrap">
+            <label>Email:</label>
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="name@example.com" />
+          </div>
+          <div className="input-wrap">
+            <label>Password:</label>
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="******" />
+          </div>
+          <button className="btn large" onClick={authenticateUser}>Access Hub</button>
+        </section>
+      ) : (
+        <section className="task-dashboard">
+          <header className="top-bar">
+            <h1>Productivity Hub 🚀</h1>
+            <div className="create-task">
+              <input type="text" value={newTask} onChange={(e) => setNewTask(e.target.value)} placeholder="What's next?" />
+              <select value={schedule} onChange={(e) => setSchedule(e.target.value)}>
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="tomorrow">Tomorrow</option>
+              </select>
+              <button className="btn add" onClick={createTask}>Create</button>
             </div>
+          </header>
 
-            {editingId === study.id && (
-              <div style={{ marginTop: '10px' }}>
-                <input
-                  type="text"
-                  value={editSubject}
-                  onChange={e => setEditSubject(e.target.value)}
-                />
-                <input
-                  type="number"
-                  value={editDuration}
-                  onChange={e => setEditDuration(e.target.value)}
-                />
-                <input
-                  type="date"
-                  value={editDate}
-                  onChange={e => setEditDate(e.target.value)}
-                />
-                <button onClick={() => saveEdit(study.id)}>Save</button>
-                <button onClick={() => setEditingId(null)}>Cancel</button>
-              </div>
+          <nav className="filter-bar">
+            <span>Filter:</span>
+            <button className={activeFilter === 'all' ? 'active' : ''} onClick={() => applyFilter('all')}>All</button>
+            <button className={activeFilter === 'yesterday' ? 'active' : ''} onClick={() => applyFilter('yesterday')}>Yesterday</button>
+            <button className={activeFilter === 'today' ? 'active' : ''} onClick={() => applyFilter('today')}>Today</button>
+            <button className={activeFilter === 'tomorrow' ? 'active' : ''} onClick={() => applyFilter('tomorrow')}>Tomorrow</button>
+          </nav>
+
+          <div className="task-list">
+            {filteredTasks().length === 0 ? (
+              <p className="empty-state">✅ Nothing to do here!</p>
+            ) : (
+              filteredTasks().map((task, idx) => (
+                <div key={idx} className={`task-block ${task.isDone ? 'done' : ''}`}>
+                  {currentEdit === idx ? (
+                    <div className="edit-area">
+                      <input type="text" value={editInput} onChange={(e) => setEditInput(e.target.value)} />
+                      <button className="btn save" onClick={saveChanges}>Save</button>
+                    </div>
+                  ) : (
+                    <div className="task-body">
+                      <div className="task-check" onClick={() => toggleStatus(idx)}>
+                        <h3>{task.description}</h3>
+                        <span className="tag">{task.schedule}</span>
+                      </div>
+                      <div className="task-actions">
+                        <button onClick={() => handleEdit(idx)}>✏️</button>
+                        <button onClick={() => removeTask(idx)}>❌</button>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ))
             )}
           </div>
-        ))}
-      </div>
-    </div>
+
+          <footer className="bottom-note">
+            <p>Designed with 💡 by Future Minds Academy - 2025</p>
+          </footer>
+        </section>
+      )}
+    </main>
   );
 }
 
-export default StudyTracker;
+export default ProductivityHub;
